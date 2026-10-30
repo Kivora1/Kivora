@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="fr"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>KIVORA – Organisation et quotidien</title>
+<meta name="description" content="KIVORA : des accessoires simples pour mieux organiser la maison, le bureau et les voyages.">
+<style>
+:root{--bg:#fafaf8;--fg:#1c1c1a;--mut:#6b6b66;--acc:#2f5d50;--card:#fff;--bd:#e4e4de}
+@media(prefers-color-scheme:dark){:root{--bg:#161614;--fg:#f0f0ea;--mut:#9a9a92;--acc:#6fb39d;--card:#20201d;--bd:#33332f}}
+*{box-sizing:border-box}body{margin:0;font-family:system-ui,sans-serif;background:var(--bg);color:var(--fg)}
+header{display:flex;justify-content:space-between;align-items:center;padding:16px 20px;border-bottom:1px solid var(--bd);position:sticky;top:0;background:var(--bg)}
+h1{margin:0;letter-spacing:.2em;font-size:1.2rem}
+button{font:inherit;cursor:pointer;border:0;border-radius:8px;padding:10px 14px;background:var(--acc);color:#fff}
+button.ghost{background:transparent;color:var(--fg);border:1px solid var(--bd)}
+main{max-width:1000px;margin:0 auto;padding:20px}
+#grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:14px;display:flex;flex-direction:column;gap:8px}
+.img{aspect-ratio:1;border-radius:8px;background:var(--bd);object-fit:cover;width:100%}
+.card p{margin:0;color:var(--mut);font-size:.9rem;flex:1}
+.price{font-weight:600}
+#cart{position:fixed;inset:0 0 0 auto;width:min(360px,100%);background:var(--card);border-left:1px solid var(--bd);padding:20px;transform:translateX(100%);transition:.25s;overflow:auto}
+#cart.open{transform:none}
+.row{display:flex;justify-content:space-between;gap:8px;align-items:center;margin:10px 0}
+footer{text-align:center;color:var(--mut);font-size:.85rem;padding:30px 20px}
+footer a{color:inherit}
+</style></head><body>
+<header><h1>KIVORA</h1><button id="open">Panier (<span id="count">0</span>)</button></header>
+<main><div id="grid"></div></main>
+<aside id="cart"><div class="row"><strong>Votre panier</strong><button class="ghost" id="close">Fermer</button></div>
+<div id="lines"></div><div class="row"><strong>Total</strong><strong id="total">0,00 €</strong></div>
+<p style="color:var(--mut);font-size:.85rem">Livraison calculée au paiement.</p>
+<button id="pay" style="width:100%">Payer</button><p id="err" style="color:#c0392b"></p></aside>
+<footer><a href="/mentions-legales.html">Mentions légales</a> · <a href="/cgv.html">CGV</a> · <a href="/confidentialite.html">Confidentialité</a> · <a href="/retours.html">Retours</a></footer>
+<script>
+var products=[],cart={};
+try{cart=JSON.parse(localStorage.getItem('cart')||'{}')}catch(e){}
+var $=function(i){return document.getElementById(i)};
+var eur=function(c){return (c/100).toFixed(2).replace('.',',')+' €'};
+function save(){try{localStorage.setItem('cart',JSON.stringify(cart))}catch(e){}render()}
+function add(id){cart[id]=Math.min((cart[id]||0)+1,10);save()}
+function sub(id){cart[id]--;if(cart[id]<=0)delete cart[id];save()}
+function render(){
+  var n=0,t=0,h='';
+  products.forEach(function(p){var q=cart[p.id];if(!q)return;n+=q;t+=q*p.price;
+    h+='<div class="row"><span>'+p.name+'</span><span><button class="ghost" onclick="sub(\''+p.id+'\')">−</button> '+q+' <button class="ghost" onclick="add(\''+p.id+'\')">+</button></span></div>'});
+  $('lines').innerHTML=h||'<p>Votre panier est vide.</p>';$('count').textContent=n;$('total').textContent=eur(t);$('pay').disabled=!n}
+fetch('/products.json').then(function(r){return r.json()}).then(function(d){
+  products=d;
+  $('grid').innerHTML=d.map(function(p){return '<div class="card">'+
+   (p.image?'<img class="img" src="'+p.image+'" alt="'+p.name+'">':'<div class="img"></div>')+
+   '<strong>'+p.name+'</strong><p>'+p.desc+'</p><span class="price">'+eur(p.price)+'</span>'+
+   '<button onclick="add(\''+p.id+'\')">Ajouter au panier</button></div>'}).join('');
+  render()});
+$('open').onclick=function(){$('cart').classList.add('open')};
+$('close').onclick=function(){$('cart').classList.remove('open')};
+$('pay').onclick=function(){
+  $('err').textContent='';$('pay').disabled=true;
+  fetch('/api/checkout',{method:'POST',headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({items:Object.keys(cart).map(function(id){return {id:id,qty:cart[id]}})})})
+  .then(function(r){return r.json()}).then(function(d){
+    if(d.url){location.href=d.url}else{throw new Error(d.error||'Erreur')}})
+  .catch(function(e){$('err').textContent='Paiement indisponible : '+e.message;$('pay').disabled=false})};
+</script></body></html>
