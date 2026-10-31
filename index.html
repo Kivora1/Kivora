@@ -1,57 +1,86 @@
 <!doctype html>
 <html lang="fr"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>KIVORA – Organisation et quotidien</title>
-<meta name="description" content="KIVORA : des accessoires simples pour mieux organiser la maison, le bureau et les voyages.">
+<title>KIVORA – Maison, quotidien, essentiels</title>
+<meta name="description" content="KIVORA : des accessoires simples et soignés pour organiser la maison, le quotidien et les essentiels.">
 <style>
-:root{--bg:#fafaf8;--fg:#1c1c1a;--mut:#6b6b66;--acc:#2f5d50;--card:#fff;--bd:#e4e4de}
-@media(prefers-color-scheme:dark){:root{--bg:#161614;--fg:#f0f0ea;--mut:#9a9a92;--acc:#6fb39d;--card:#20201d;--bd:#33332f}}
-*{box-sizing:border-box}body{margin:0;font-family:system-ui,sans-serif;background:var(--bg);color:var(--fg)}
-header{display:flex;justify-content:space-between;align-items:center;padding:16px 20px;border-bottom:1px solid var(--bd);position:sticky;top:0;background:var(--bg)}
-h1{margin:0;letter-spacing:.2em;font-size:1.2rem}
-button{font:inherit;cursor:pointer;border:0;border-radius:8px;padding:10px 14px;background:var(--acc);color:#fff}
-button.ghost{background:transparent;color:var(--fg);border:1px solid var(--bd)}
-main{max-width:1000px;margin:0 auto;padding:20px}
-#grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px}
-.card{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:14px;display:flex;flex-direction:column;gap:8px}
-.img{aspect-ratio:1;border-radius:8px;background:var(--bd);object-fit:cover;width:100%}
-.card p{margin:0;color:var(--mut);font-size:.9rem;flex:1}
-.price{font-weight:600}
-#cart{position:fixed;inset:0 0 0 auto;width:min(360px,100%);background:var(--card);border-left:1px solid var(--bd);padding:20px;transform:translateX(100%);transition:.25s;overflow:auto}
-#cart.open{transform:none}
-.row{display:flex;justify-content:space-between;gap:8px;align-items:center;margin:10px 0}
-footer{text-align:center;color:var(--mut);font-size:.85rem;padding:30px 20px}
+:root{color-scheme:light;--cream:#faf8f4;--ink:#2c332f;--mut:#76807a;--line:#e6e2da;--serif:"Iowan Old Style","Palatino Linotype","Book Antiqua",Georgia,serif}
+[data-cat=home]{--w:#e8efe8;--c:#a9c4b0;--i2:#4f7561}
+[data-cat=everyday]{--w:#f7ebe4;--c:#e9b9a2;--i2:#a4614a}
+[data-cat=essentials]{--w:#e6edf3;--c:#a9bfd3;--i2:#4d6f8c}
+*{box-sizing:border-box}
+body{margin:0;font-family:system-ui,-apple-system,sans-serif;background:var(--cream);color:var(--ink);-webkit-font-smoothing:antialiased}
+button{font:inherit;cursor:pointer;border-radius:999px;padding:9px 18px;border:1px solid var(--line);background:transparent;color:var(--ink);transition:.25s}
+header{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:22px 28px;background:var(--cream);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:5}
+.brand{text-align:center}
+h1{margin:0;font:300 1.75rem var(--serif);letter-spacing:.34em;padding-left:.34em;text-transform:uppercase;line-height:1}
+h1 svg{height:.95em;width:.95em;vertical-align:-.12em;margin:0 .1em 0 .02em;overflow:visible}
+h1 circle{mix-blend-mode:multiply;opacity:.85}
+.brand small{display:block;margin-top:9px;font-size:.6rem;letter-spacing:.42em;padding-left:.42em;text-transform:uppercase;color:var(--mut)}
+.cartbtn{position:relative;justify-self:end;width:44px;height:44px;padding:0;display:grid;place-items:center;background:linear-gradient(135deg,#e8efe8,#f7ebe4 55%,#e6edf3)}
+.cartbtn:hover{border-color:var(--ink)}
+.badge{position:absolute;top:-4px;right:-4px;min-width:18px;height:18px;border-radius:9px;background:var(--ink);color:#fff;font-size:.68rem;display:none;align-items:center;justify-content:center}
+.sec{position:relative;overflow:hidden;background:var(--w);padding:84px 24px}
+.sec::before{content:"";position:absolute;right:-8%;top:-26%;width:44%;aspect-ratio:1;border-radius:50%;background:radial-gradient(closest-side,var(--c),transparent);opacity:.38;filter:url(#wc) blur(10px)}
+.in{position:relative;max-width:1000px;margin:0 auto}
+.eb{font-size:.7rem;letter-spacing:.32em;color:var(--i2)}
+h2{margin:8px 0 6px;font:300 clamp(2.1rem,5vw,3.2rem)/1.1 var(--serif);letter-spacing:.02em}
+.cap{margin:0 0 38px;font:italic 1.05rem var(--serif);color:var(--mut)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:22px}
+.card{background:rgba(255,255,255,.78);border:1px solid rgba(44,51,47,.06);border-radius:18px;padding:12px 12px 18px;display:flex;flex-direction:column;gap:6px;box-shadow:0 14px 34px -22px rgba(44,51,47,.4);transition:transform .3s}
+.card:hover{transform:translateY(-4px)}
+.img{position:relative;aspect-ratio:1;border-radius:12px;background:var(--w);overflow:hidden;margin-bottom:8px}
+.img::before,.img::after{content:"";position:absolute;border-radius:50%;filter:url(#wc) blur(3px)}
+.img::before{width:76%;height:68%;left:12%;top:16%;background:radial-gradient(closest-side,var(--c),transparent);opacity:.8}
+.img::after{width:46%;height:42%;right:8%;bottom:8%;background:radial-gradient(closest-side,var(--c),transparent);opacity:.45}
+.img.has::before,.img.has::after{display:none}
+.img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.card strong{font:400 1.12rem var(--serif)}
+.card p{margin:0;color:var(--mut);font-size:.87rem;line-height:1.45;flex:1}
+.price{font-family:var(--serif);font-size:1.05rem;margin-top:4px}
+.add{color:var(--i2);border-color:var(--c);margin-top:6px}
+.add:hover{background:var(--c);color:var(--ink)}
+footer{text-align:center;color:var(--mut);font-size:.8rem;padding:48px 20px}
 footer a{color:inherit}
-nav{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}.tab{background:transparent;color:var(--fg);border:1px solid var(--bd)}.tab.on{background:var(--acc);color:#fff;border-color:var(--acc)}
+#cart{position:fixed;inset:0 0 0 auto;width:min(380px,100%);background:var(--cream);border-left:1px solid var(--line);padding:26px;transform:translateX(100%);transition:.3s;overflow:auto;z-index:10;box-shadow:-24px 0 40px -34px rgba(0,0,0,.45)}
+#cart.open{transform:none}
+.row{display:flex;justify-content:space-between;gap:10px;align-items:center;margin:12px 0}
+.q{padding:2px 11px}
+.pay{background:var(--ink);color:#fff;width:100%;padding:14px;border:0;letter-spacing:.08em}
+.pay:disabled{opacity:.35;cursor:default}
 </style></head><body>
-<header><h1>KIVORA</h1><button id="open">Panier (<span id="count">0</span>)</button></header>
-<main><nav id="tabs"></nav><div id="grid"></div></main>
-<aside id="cart"><div class="row"><strong>Votre panier</strong><button class="ghost" id="close">Fermer</button></div>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><filter id="wc" x="-20%" y="-20%" width="140%" height="140%"><feTurbulence type="fractalNoise" baseFrequency=".018" numOctaves="3" seed="7" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="26"/></filter></svg>
+<header><span></span>
+<div class="brand"><h1>KIV<svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="14" r="12" fill="#a9c4b0"/><circle cx="13" cy="26" r="12" fill="#e9b9a2"/><circle cx="27" cy="26" r="12" fill="#a9bfd3"/></svg>RA</h1><small>maison · quotidien · essentiels</small></div>
+<button class="cartbtn" id="open" aria-label="Panier"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8h14l-1 12H6L5 8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg><span class="badge" id="count">0</span></button></header>
+<main id="secs"></main>
+<footer><a href="/mentions-legales.html">Mentions légales</a> · <a href="/cgv.html">CGV</a> · <a href="/confidentialite.html">Confidentialité</a> · <a href="/retours.html">Retours</a></footer>
+<aside id="cart"><div class="row"><strong style="font:400 1.3rem var(--serif)">Votre panier</strong><button id="close">Fermer</button></div>
 <div id="lines"></div><div class="row"><strong>Total</strong><strong id="total">0,00 €</strong></div>
 <p style="color:var(--mut);font-size:.85rem">Livraison calculée au paiement.</p>
-<button id="pay" style="width:100%">Payer</button><p id="err" style="color:#c0392b"></p></aside>
-<footer><a href="/mentions-legales.html">Mentions légales</a> · <a href="/cgv.html">CGV</a> · <a href="/confidentialite.html">Confidentialité</a> · <a href="/retours.html">Retours</a></footer>
+<button class="pay" id="pay">PAYER</button><p id="err" style="color:#b0402f"></p></aside>
 <script>
 var products=[],cart={};
 try{cart=JSON.parse(localStorage.getItem('cart')||'{}')}catch(e){}
 var $=function(i){return document.getElementById(i)};
 var eur=function(c){return (c/100).toFixed(2).replace('.',',')+' €'};
+var SECS=[['home','Home','Une maison apaisée, tout à sa place.'],['everyday','Everyday','Les petits gestes du quotidien, simplifiés.'],['essentials','Essentials','L’indispensable, pensé avec soin.']];
 function save(){try{localStorage.setItem('cart',JSON.stringify(cart))}catch(e){}render()}
 function add(id){cart[id]=Math.min((cart[id]||0)+1,10);save()}
 function sub(id){cart[id]--;if(cart[id]<=0)delete cart[id];save()}
 function render(){
   var n=0,t=0,h='';
   products.forEach(function(p){var q=cart[p.id];if(!q)return;n+=q;t+=q*p.price;
-    h+='<div class="row"><span>'+p.name+'</span><span><button class="ghost" onclick="sub(\''+p.id+'\')">−</button> '+q+' <button class="ghost" onclick="add(\''+p.id+'\')">+</button></span></div>'});
-  $('lines').innerHTML=h||'<p>Votre panier est vide.</p>';$('count').textContent=n;$('total').textContent=eur(t);$('pay').disabled=!n}
-var CATS=[['all','Tout'],['home','KIVORA Home'],['everyday','KIVORA Everyday'],['essentials','KIVORA Essentials']],current='all';
-function card(p){return '<div class="card">'+(p.image?'<img class="img" src="'+p.image+'" alt="'+p.name+'">':'<div class="img"></div>')+'<strong>'+p.name+'</strong><p>'+p.desc+'</p><span class="price">'+eur(p.price)+'</span><button onclick="add(\''+p.id+'\')">Ajouter au panier</button></div>'}
-function drawGrid(){
-  $('tabs').innerHTML=CATS.map(function(c){return '<button class="tab'+(c[0]===current?' on':'')+'" onclick="setCat(\''+c[0]+'\')">'+c[1]+'</button>'}).join('');
-  $('grid').innerHTML=products.filter(function(p){return current==='all'||p.cat===current}).map(card).join('');
-}
-function setCat(c){current=c;drawGrid()}
-fetch('/products.json').then(function(r){return r.json()}).then(function(d){products=d;drawGrid();render()});
+    h+='<div class="row"><span>'+p.name+'</span><span><button class="q" onclick="sub(\''+p.id+'\')">−</button> '+q+' <button class="q" onclick="add(\''+p.id+'\')">+</button></span></div>'});
+  $('lines').innerHTML=h||'<p style="color:var(--mut)">Votre panier est vide.</p>';
+  $('count').textContent=n;$('count').style.display=n?'flex':'none';$('total').textContent=eur(t);$('pay').disabled=!n}
+function card(p){return '<div class="card"><div class="img'+(p.image?' has':'')+'">'+(p.image?'<img src="'+p.image+'" alt="'+p.name+'">':'')+'</div><strong>'+p.name+'</strong><p>'+p.desc+'</p><span class="price">'+eur(p.price)+'</span><button class="add" onclick="add(\''+p.id+'\')">Ajouter au panier</button></div>'}
+function draw(){
+  $('secs').innerHTML=SECS.map(function(s,i){
+    var items=products.filter(function(p){return p.cat===s[0]});
+    if(!items.length)return '';
+    return '<section class="sec" data-cat="'+s[0]+'" id="'+s[0]+'"><div class="in"><span class="eb">0'+(i+1)+'</span><h2>'+s[1]+'</h2><p class="cap">'+s[2]+'</p><div class="grid">'+items.map(card).join('')+'</div></div></section>'}).join('')}
+fetch('/products.json').then(function(r){return r.json()}).then(function(d){products=d;draw();render()});
 $('open').onclick=function(){$('cart').classList.add('open')};
 $('close').onclick=function(){$('cart').classList.remove('open')};
 $('pay').onclick=function(){
