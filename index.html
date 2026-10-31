@@ -1,5 +1,4 @@
 <!doctype html>
-
 <html lang="fr"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>KIVORA – Organisation et quotidien</title>
@@ -23,9 +22,10 @@ main{max-width:1000px;margin:0 auto;padding:20px}
 .row{display:flex;justify-content:space-between;gap:8px;align-items:center;margin:10px 0}
 footer{text-align:center;color:var(--mut);font-size:.85rem;padding:30px 20px}
 footer a{color:inherit}
+nav{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}.tab{background:transparent;color:var(--fg);border:1px solid var(--bd)}.tab.on{background:var(--acc);color:#fff;border-color:var(--acc)}
 </style></head><body>
 <header><h1>KIVORA</h1><button id="open">Panier (<span id="count">0</span>)</button></header>
-<main><div id="grid"></div></main>
+<main><nav id="tabs"></nav><div id="grid"></div></main>
 <aside id="cart"><div class="row"><strong>Votre panier</strong><button class="ghost" id="close">Fermer</button></div>
 <div id="lines"></div><div class="row"><strong>Total</strong><strong id="total">0,00 €</strong></div>
 <p style="color:var(--mut);font-size:.85rem">Livraison calculée au paiement.</p>
@@ -44,13 +44,14 @@ function render(){
   products.forEach(function(p){var q=cart[p.id];if(!q)return;n+=q;t+=q*p.price;
     h+='<div class="row"><span>'+p.name+'</span><span><button class="ghost" onclick="sub(\''+p.id+'\')">−</button> '+q+' <button class="ghost" onclick="add(\''+p.id+'\')">+</button></span></div>'});
   $('lines').innerHTML=h||'<p>Votre panier est vide.</p>';$('count').textContent=n;$('total').textContent=eur(t);$('pay').disabled=!n}
-fetch('/products.json').then(function(r){return r.json()}).then(function(d){
-  products=d;
-  $('grid').innerHTML=d.map(function(p){return '<div class="card">'+
-   (p.image?'<img class="img" src="'+p.image+'" alt="'+p.name+'">':'<div class="img"></div>')+
-   '<strong>'+p.name+'</strong><p>'+p.desc+'</p><span class="price">'+eur(p.price)+'</span>'+
-   '<button onclick="add(\''+p.id+'\')">Ajouter au panier</button></div>'}).join('');
-  render()});
+var CATS=[['all','Tout'],['home','KIVORA Home'],['everyday','KIVORA Everyday'],['essentials','KIVORA Essentials']],current='all';
+function card(p){return '<div class="card">'+(p.image?'<img class="img" src="'+p.image+'" alt="'+p.name+'">':'<div class="img"></div>')+'<strong>'+p.name+'</strong><p>'+p.desc+'</p><span class="price">'+eur(p.price)+'</span><button onclick="add(\''+p.id+'\')">Ajouter au panier</button></div>'}
+function drawGrid(){
+  $('tabs').innerHTML=CATS.map(function(c){return '<button class="tab'+(c[0]===current?' on':'')+'" onclick="setCat(\''+c[0]+'\')">'+c[1]+'</button>'}).join('');
+  $('grid').innerHTML=products.filter(function(p){return current==='all'||p.cat===current}).map(card).join('');
+}
+function setCat(c){current=c;drawGrid()}
+fetch('/products.json').then(function(r){return r.json()}).then(function(d){products=d;drawGrid();render()});
 $('open').onclick=function(){$('cart').classList.add('open')};
 $('close').onclick=function(){$('cart').classList.remove('open')};
 $('pay').onclick=function(){

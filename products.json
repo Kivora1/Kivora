@@ -1,7 +1,42 @@
 [
- {"id":"KIVORA-001","name":"Organisateur de tiroirs","price":1990,"desc":"Gardez vos tiroirs ordonnés et retrouvez vos petits objets facilement.","image":""},
- {"id":"KIVORA-002","name":"Organisateur de câbles","price":1290,"desc":"Moins de câbles qui traînent sur votre bureau ou votre espace multimédia.","image":""},
- {"id":"KIVORA-003","name":"Rouleau anti-poils réutilisable","price":1690,"desc":"Retirez les poils des textiles compatibles, sans rouleaux jetables.","image":""},
- {"id":"KIVORA-004","name":"Organisateur de voyage","price":1990,"desc":"Rangez vêtements et accessoires par catégorie dans votre valise.","image":""},
- {"id":"KIVORA-005","name":"Support réglable pour ordinateur portable","price":2490,"desc":"Libérez de la place sur votre bureau et adaptez la position de l’écran.","image":""}
+ {
+  "id": "KIVORA-001",
+  "name": "Organisateur de tiroirs",
+  "price": 1990,
+  "desc": "Gardez vos tiroirs ordonnés et retrouvez vos petits objets facilement.",
+  "image": "",
+  "cat": "home"
+ },
+ {
+  "id": "KIVORA-002",
+  "name": "Organisateur de câbles",
+  "price": 1290,
+  "desc": "Moins de câbles qui traînent sur votre bureau ou votre espace multimédia.",
+  "image": "",
+  "cat": "essentials"
+ },
+ {
+  "id": "KIVORA-003",
+  "name": "Rouleau anti-poils réutilisable",
+  "price": 1690,
+  "desc": "Retirez les poils des textiles compatibles, sans rouleaux jetables.",
+  "image": "",
+  "cat": "everyday"
+ },
+ {
+  "id": "KIVORA-004",
+  "name": "Organisateur de voyage",
+  "price": 1990,
+  "desc": "Rangez vêtements et accessoires par catégorie dans votre valise.",
+  "image": "",
+  "cat": "everyday"
+ },
+ {
+  "id": "KIVORA-005",
+  "name": "Support réglable pour ordinateur portable",
+  "price": 2490,
+  "desc": "Libérez de la place sur votre bureau et adaptez la position de l’écran.",
+  "image": "",
+  "cat": "essentials"
+ }
 ]
