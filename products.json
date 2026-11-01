@@ -6,7 +6,12 @@
   "desc": "Gardez vos tiroirs ordonnés et retrouvez vos petits objets facilement.",
   "image": "",
   "cat": "home",
-  "deal": 1590
+  "deal": 1590,
+  "long": "Retrouvez facilement vos petits objets grâce à un rangement pensé pour garder vos tiroirs ordonnés.",
+  "points": [
+   "Permet de séparer les accessoires du quotidien",
+   "Une solution simple pour mieux organiser la maison"
+  ]
  },
  {
   "id": "KIVORA-002",
@@ -14,7 +19,13 @@
   "price": 1290,
   "desc": "Moins de câbles qui traînent sur votre bureau ou votre espace multimédia.",
   "image": "",
-  "cat": "essentials"
+  "cat": "essentials",
+  "long": "Gardez les câbles de votre bureau ou de votre espace multimédia mieux rangés et faciles à retrouver.",
+  "points": [
+   "Aide à limiter les câbles qui traînent",
+   "Pratique près d’un bureau ou d’une table de chevet",
+   "Format compact, facile à intégrer à un espace de travail"
+  ]
  },
  {
   "id": "KIVORA-003",
@@ -23,7 +34,13 @@
   "desc": "Retirez les poils des textiles compatibles, sans rouleaux jetables.",
   "image": "",
   "cat": "everyday",
-  "deal": 1290
+  "deal": 1290,
+  "long": "Un accessoire pratique pour retirer les poils présents sur certains textiles de la maison.",
+  "points": [
+   "À utiliser sur les surfaces compatibles indiquées par le fabricant",
+   "Alternative réutilisable aux rouleaux adhésifs jetables, selon le modèle",
+   "Utile pour l’entretien des canapés, plaids et vêtements adaptés"
+  ]
  },
  {
   "id": "KIVORA-004",
@@ -31,7 +48,13 @@
   "price": 1990,
   "desc": "Rangez vêtements et accessoires par catégorie dans votre valise.",
   "image": "",
-  "cat": "everyday"
+  "cat": "everyday",
+  "long": "Rangez plus facilement vos affaires et séparez vos effets personnels dans votre valise ou votre sac.",
+  "points": [
+   "Aide à organiser vêtements et accessoires",
+   "Utile pour les déplacements et les vacances",
+   "Permet de regrouper les affaires par catégorie"
+  ]
  },
  {
   "id": "KIVORA-005",
@@ -40,6 +63,12 @@
   "desc": "Libérez de la place sur votre bureau et adaptez la position de l’écran.",
   "image": "",
   "cat": "essentials",
-  "deal": 1990
+  "deal": 1990,
+  "long": "Organisez votre espace de travail avec un support pour ordinateur portable, à choisir selon les dimensions et le poids acceptés par le fabricant.",
+  "points": [
+   "Aide à libérer de la place sur le bureau",
+   "Permet d’adapter la position de l’ordinateur selon le modèle",
+   "Convient aux espaces de travail à domicile ou d’étude"
+  ]
  }
 ]
