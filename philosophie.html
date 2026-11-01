@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="fr"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Notre philosophie – KIVORA</title>
+<meta name="description" content="Pourquoi KIVORA existe : une petite boutique gérée par des Français, pour faire de la place à ce qui compte.">
+<meta name="theme-color" content="#faf8f4">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Ccircle cx='20' cy='14' r='12' fill='%23a9c4b0'/%3E%3Ccircle cx='13' cy='26' r='12' fill='%23e9b9a2' fill-opacity='.85'/%3E%3Ccircle cx='27' cy='26' r='12' fill='%23a9bfd3' fill-opacity='.85'/%3E%3C/svg%3E">
+<style>
+:root{color-scheme:light;--cream:#faf8f4;--ink:#2c332f;--mut:#76807a;--line:#e6e2da;--serif:"Iowan Old Style","Palatino Linotype","Book Antiqua",Georgia,serif}
+[data-cat=home]{--w:#e8efe8;--c:#a9c4b0;--i2:#4f7561}
+[data-cat=everyday]{--w:#f7ebe4;--c:#e9b9a2;--i2:#a4614a}
+[data-cat=essentials]{--w:#e6edf3;--c:#a9bfd3;--i2:#4d6f8c}
+*{box-sizing:border-box}
+body{margin:0;font-family:system-ui,-apple-system,sans-serif;background:var(--cream);color:var(--ink);-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:-10%;z-index:-1;pointer-events:none;filter:blur(12px);background:radial-gradient(40% 34% at 10% 6%,#dcefe6,transparent 70%),radial-gradient(36% 30% at 92% 20%,#fbe3d9,transparent 70%),radial-gradient(44% 34% at 72% 96%,#dfe7f6,transparent 70%)}
+:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+header{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:20px 28px;border-bottom:1px solid var(--line);background:var(--cream)}
+.back{justify-self:start;font-size:.68rem;letter-spacing:.24em;text-transform:uppercase;color:var(--mut);text-decoration:none;padding:6px 0;border-bottom:1px solid transparent;transition:.25s}
+.back:hover{color:var(--ink);border-bottom-color:#a9c4b0}
+.brand{text-align:center}
+.logo{margin:0;font:300 1.75rem var(--serif);letter-spacing:.34em;padding-left:.34em;text-transform:uppercase;line-height:1}
+.logo svg{height:.95em;width:.95em;vertical-align:-.12em;margin:0 .1em 0 .02em;overflow:visible}
+.logo circle{mix-blend-mode:multiply;opacity:.85}
+.brand small{display:block;margin-top:9px;font-size:.6rem;letter-spacing:.42em;padding-left:.42em;text-transform:uppercase;color:var(--mut)}
+.hero{text-align:center;padding:64px 24px 0;max-width:780px;margin:0 auto}
+.eb{font-size:.7rem;letter-spacing:.32em;color:#4f7561}
+h1.t{margin:14px 0 14px;font:300 clamp(2.2rem,6vw,3.6rem)/1.1 var(--serif)}
+.lead{margin:0 auto;max-width:34em;font:italic 1.15rem/1.6 var(--serif);color:var(--mut)}
+.treewrap{max-width:640px;margin:16px auto 0;padding:0 16px}
+#tree{display:block;width:100%;height:auto;overflow:visible}
+.bw{fill:none;stroke:#34423f;stroke-linecap:round;stroke-dasharray:1;stroke-dashoffset:1;animation:draw 2.2s cubic-bezier(.4,.1,.3,1) forwards;animation-delay:var(--d,0s)}
+@keyframes draw{to{stroke-dashoffset:0}}
+.cn{opacity:0;animation:fadein 2.6s ease forwards;animation-delay:var(--d,.8s)}
+@keyframes fadein{to{opacity:1}}
+.fl{transform-box:fill-box;transform-origin:50% 100%;animation:fly 8s ease-in-out infinite alternate}
+@keyframes fly{from{transform:translate(0,0) scale(var(--s))}to{transform:translate(var(--dx),var(--dy)) scale(var(--s))}}
+.wrap{max-width:680px;margin:0 auto;padding:0 24px}
+.sec2{padding-top:54px}
+h2{margin:0 0 16px;font:300 clamp(1.7rem,4vw,2.3rem)/1.15 var(--serif)}
+.wrap p{margin:0 0 16px;font:1.06rem/1.8 var(--serif);color:#3d4540}
+.trio{display:grid;grid-template-columns:repeat(3,1fr);margin:34px 0 0}
+.tc{background:var(--w);padding:38px 28px 40px}
+.tc svg{display:block;margin-bottom:12px}
+.tc h3{margin:0 0 8px;font:300 1.7rem var(--serif)}
+.tc p{margin:0 0 14px;font:.95rem/1.6 system-ui,sans-serif;color:#4a524d}
+.go{font:italic .98rem var(--serif);color:var(--i2);text-decoration:underline;text-decoration-color:var(--c);text-underline-offset:5px}
+.promise{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:1000px;margin:0 auto;padding:54px 24px 10px;text-align:center}
+.promise strong{display:block;font:400 1.05rem var(--serif);margin-bottom:6px}
+.promise span{color:var(--mut);font-size:.85rem;line-height:1.5}
+.cta{text-align:center;padding:40px 24px 20px}
+.btn{display:inline-block;padding:14px 32px;border-radius:999px;background:var(--ink);color:#fff;text-decoration:none;letter-spacing:.12em;font-size:.8rem;text-transform:uppercase}
+footer{text-align:center;color:var(--mut);font-size:.8rem;padding:30px 20px 48px}
+footer a{color:inherit}
+@media(max-width:800px){.trio,.promise{grid-template-columns:1fr}.back{font-size:.6rem;letter-spacing:.14em}.logo{font-size:1.4rem}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.bw{stroke-dashoffset:0}.cn{opacity:1}.fl{transform:scale(var(--s))}}
+</style></head><body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<filter id="wc3" x="-10%" y="-10%" width="120%" height="120%"><feTurbulence type="fractalNoise" baseFrequency=".02" numOctaves="3" seed="11" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="22" result="d"/><feGaussianBlur in="d" stdDeviation="1.3"/></filter>
+<g id="lf"><path d="M0 0C11-12 9-42 1-64C-9-44-10-14 0 0Z" fill="currentColor" fill-opacity=".7" stroke="currentColor" stroke-opacity=".55" stroke-width="1"/><path d="M0-3C1-24 1-44 1-58" fill="none" stroke="currentColor" stroke-opacity=".4" stroke-width=".8"/></g>
+<g id="rl"><path d="M0 0C12-6 14-22 0-26C-14-22-12-6 0 0Z" fill="currentColor" fill-opacity=".7" stroke="currentColor" stroke-opacity=".5" stroke-width=".9"/><path d="M0-2V-21" stroke="currentColor" stroke-opacity=".35" stroke-width=".7"/></g>
+<g id="pt"><path d="M0 0C-9-6-10-21 0-26C10-21 9-6 0 0Z" fill="currentColor" fill-opacity=".68" stroke="currentColor" stroke-opacity=".5" stroke-width=".8"/></g>
+<g id="fl"><use href="#pt"/><use href="#pt" transform="rotate(72)"/><use href="#pt" transform="rotate(144)"/><use href="#pt" transform="rotate(216)"/><use href="#pt" transform="rotate(288)"/><circle r="3" fill="#c97b5f" fill-opacity=".85"/></g>
+</defs></svg>
+<header><a class="back" href="/">← La boutique</a>
+<div class="brand"><div class="logo">KIV<svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="14" r="12" fill="#a9c4b0"/><circle cx="13" cy="26" r="12" fill="#e9b9a2"/><circle cx="27" cy="26" r="12" fill="#a9bfd3"/></svg>RA</div><small>maison · quotidien · essentiels</small></div><span></span></header>
+
+<!-- Textes à personnaliser : remplacez-les par votre propre histoire -->
+<section class="hero"><span class="eb">NOTRE PHILOSOPHIE</span><h1 class="t">Faire de la place pour ce qui compte</h1><p class="lead">KIVORA, c’est l’idée simple qu’un lieu mieux rangé rend l’esprit plus léger.</p></section>
+
+<div class="treewrap"><svg id="tree" viewBox="0 0 600 540" role="img" aria-label="Un arbre de vie à l’aquarelle, dont le feuillage prend les couleurs des trois univers KIVORA">
+<g class="cn" style="--d:.1s" filter="url(#wc3)"><ellipse cx="300" cy="478" rx="230" ry="13" fill="#a9bfd3" fill-opacity=".5"/><ellipse cx="312" cy="498" rx="168" ry="8" fill="#a9bfd3" fill-opacity=".36"/><ellipse cx="290" cy="516" rx="118" ry="5.5" fill="#a9bfd3" fill-opacity=".26"/>
+<path d="M96 400A210 210 0 0 1 150 250" fill="none" stroke="#a9bfd3" stroke-opacity=".32" stroke-width="26" stroke-linecap="round"/><path d="M504 400A210 210 0 0 0 452 252" fill="none" stroke="#a9c4b0" stroke-opacity=".34" stroke-width="26" stroke-linecap="round"/></g>
+<g id="cano" class="cn" style="--d:1.1s;mix-blend-mode:multiply" filter="url(#wc3)"></g>
+<path class="cn" style="--d:.2s" d="M268 472C262 452 272 436 276 418C281 396 268 378 274 356C279 336 289 322 292 300C293 292 294 288 296 282L306 282C309 296 312 304 318 322C326 344 322 366 330 390C336 408 346 430 342 450C340 460 346 468 352 474C330 468 318 472 300 472C288 472 278 474 268 472Z" fill="#34423f" fill-opacity=".88"/>
+<g stroke-width="5"><path class="bw" pathLength="1" style="--d:.3s" d="M272 466C250 472 226 474 200 488"/><path class="bw" pathLength="1" style="--d:.3s" d="M346 468C368 474 394 476 420 490"/></g>
+<g stroke-width="3.2"><path class="bw" pathLength="1" style="--d:.5s" d="M290 470C286 484 276 494 262 504"/><path class="bw" pathLength="1" style="--d:.5s" d="M318 470C324 484 336 492 350 500"/></g>
+<g stroke-width="1.6"><path class="bw" pathLength="1" style="--d:.9s" d="M226 474C214 472 202 466 190 466"/><path class="bw" pathLength="1" style="--d:.9s" d="M394 476C406 474 418 468 430 468"/></g>
+<g stroke-width="5"><path class="bw" pathLength="1" style="--d:.7s" d="M290 306C268 282 238 262 196 250"/><path class="bw" pathLength="1" style="--d:.7s" d="M314 304C338 280 372 262 410 252"/></g>
+<g stroke-width="4"><path class="bw" pathLength="1" style="--d:.9s" d="M283 332C256 326 226 330 190 316"/><path class="bw" pathLength="1" style="--d:.9s" d="M322 338C350 332 382 336 416 322"/><path class="bw" pathLength="1" style="--d:.9s" d="M296 290C286 258 278 230 262 200"/><path class="bw" pathLength="1" style="--d:.9s" d="M304 288C314 256 324 228 340 198"/></g>
+<g stroke-width="3.4"><path class="bw" pathLength="1" style="--d:1.1s" d="M300 286C298 250 300 214 304 176"/></g>
+<g stroke-width="2.2"><path class="bw" pathLength="1" style="--d:1.4s" d="M238 264C228 246 224 228 214 212"/><path class="bw" pathLength="1" style="--d:1.4s" d="M214 254C200 240 186 236 170 238"/><path class="bw" pathLength="1" style="--d:1.4s" d="M372 264C380 246 392 232 396 214"/><path class="bw" pathLength="1" style="--d:1.4s" d="M394 256C408 244 424 242 440 246"/><path class="bw" pathLength="1" style="--d:1.5s" d="M270 216C258 206 246 200 236 188"/><path class="bw" pathLength="1" style="--d:1.5s" d="M330 214C342 204 354 198 362 186"/><path class="bw" pathLength="1" style="--d:1.6s" d="M224 328C212 336 198 340 184 338"/><path class="bw" pathLength="1" style="--d:1.6s" d="M382 336C394 342 410 344 424 340"/><path class="bw" pathLength="1" style="--d:1.6s" d="M302 214C292 202 288 190 282 176"/><path class="bw" pathLength="1" style="--d:1.6s" d="M304 200C314 190 322 182 328 170"/></g>
+<g id="conf"></g></svg></div>
+
+<div class="wrap sec2"><h2>Pourquoi KIVORA existe</h2>
+<p>KIVORA est née d’une envie : proposer des accessoires simples, soignés et utiles, qui apaisent le quotidien plutôt que de l’encombrer. Pas de superflu, pas de bruit : des objets qui trouvent leur place, et qui aident le reste à trouver la sienne.</p>
+<p>Nous sommes une petite boutique gérée par des Français. Chaque article est choisi avec le même regard : sera-t-il vraiment utile à la maison, aux gestes de tous les jours, à l’essentiel ?</p></div>
+
+<div class="wrap sec2"><h2>Un arbre, trois racines</h2><p>Notre arbre de vie a trois couleurs, comme la boutique a trois univers. Ils poussent ensemble, sans jamais se contredire.</p></div>
+<div class="trio" style="max-width:1000px;margin-left:auto;margin-right:auto">
+<div class="tc" data-cat="home"><svg viewBox="-20 -66 40 70" width="30" style="color:#7e8f78" aria-hidden="true"><use href="#lf" transform="rotate(18)"/></svg><h3>Home</h3><p>La maison respire quand chaque chose a sa place. Des rangements discrets pour des intérieurs apaisés.</p><a class="go" href="/#home">Découvrir Home →</a></div>
+<div class="tc" data-cat="everyday"><svg viewBox="-30 -30 60 60" width="34" style="color:#f0c3b0" aria-hidden="true"><use href="#fl"/></svg><h3>Everyday</h3><p>Les petits gestes du quotidien, simplifiés. Ce qu’on utilise sans y penser, enfin au bon endroit.</p><a class="go" href="/#everyday">Découvrir Everyday →</a></div>
+<div class="tc" data-cat="essentials"><svg viewBox="-16 -30 32 34" width="30" style="color:#8ea6bf" aria-hidden="true"><use href="#rl" transform="scale(1.1)"/></svg><h3>Essentials</h3><p>L’indispensable, pensé avec soin. Peu d’objets, mais ceux qui servent vraiment.</p><a class="go" href="/#essentials">Découvrir Essentials →</a></div></div>
+
+<div class="wrap sec2"><h2>Une feuille à la fois</h2>
+<p>Sur le panier de la boutique, une petite feuille pousse. À chaque visite, elle tombe, comme une saison qui passe. Quand il y en a trop, un coup de vent balaie tout, et une nouvelle feuille repousse ailleurs.</p>
+<p>C’est notre façon de rappeler qu’un bon rangement n’est jamais terminé : il se renouvelle, tranquillement.</p></div>
+
+<section class="promise"><div><strong>Paiement sécurisé</strong><span>Réglez par carte via Stripe, sans jamais nous transmettre vos données bancaires.</span></div><div><strong>Retour sous 14 jours</strong><span>Un doute ? Vous disposez de 14 jours pour changer d’avis, comme la loi le prévoit.</span></div><div><strong>Une équipe française</strong><span>Une petite boutique gérée par des Français, attentive à chaque commande.</span></div></section>
+<div class="cta"><a class="btn" href="/">Entrer dans la boutique</a></div>
+<footer><a href="/mentions-legales.html">Mentions légales</a> · <a href="/cgv.html">CGV</a> · <a href="/confidentialite.html">Confidentialité</a> · <a href="/retours.html">Retours</a><span style="display:block;margin-top:14px">© <span id="yr"></span> KIVORA · Boutique gérée par des Français</span></footer>
+<script>
+function rnd(a){return function(){a|=0;a=a+0x6D2B79F5|0;var t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
+var R=rnd(7),C={l:['#a9c4b0','#8fb5a0','#c2d8c8'],t:['#e9b9a2','#f3d0c2','#efc4b0'],r:['#a9bfd3','#8fb0cc','#c4d4e4']};
+function zone(x){var z=x<250?'l':x>350?'r':'t';if(R()<.18)z=['l','t','r'][Math.floor(R()*3)];return z}
+function pick(a){return a[Math.floor(R()*a.length)]}
+function canopy(){var h='',i,a,d,x,y,z;
+  for(i=0;i<40;i++){a=R()*6.2832;d=Math.sqrt(R())*150;x=300+Math.cos(a)*d*1.08;y=205+Math.sin(a)*d*.78;z=zone(x);
+    h+='<ellipse cx="'+x.toFixed(1)+'" cy="'+y.toFixed(1)+'" rx="'+(26+R()*30).toFixed(1)+'" ry="'+(20+R()*24).toFixed(1)+'" fill="'+pick(C[z])+'" fill-opacity="'+(.3+R()*.28).toFixed(2)+'" transform="rotate('+Math.round(R()*180)+' '+x.toFixed(1)+' '+y.toFixed(1)+')"/>'}
+  return h}
+function confetti(){var h='',i,a,r,x,y,z,s;
+  for(i=0;i<60;i++){a=R()*6.2832;r=178+R()*88;x=300+Math.cos(a)*r*1.08;y=200+Math.sin(a)*r*.9;if(y>450)continue;z=zone(x);s=(.11+R()*.16).toFixed(2);
+    h+='<g transform="translate('+x.toFixed(1)+' '+y.toFixed(1)+') rotate('+Math.round(R()*360)+')"><use href="#'+(R()<.3?'rl':'lf')+'" class="fl" style="--s:'+s+';--dx:'+(R()*16-8).toFixed(1)+'px;--dy:'+(R()*14-4).toFixed(1)+'px;animation-delay:-'+(R()*8).toFixed(1)+'s;animation-duration:'+(6+R()*5).toFixed(1)+'s;color:'+pick(C[z])+'"/></g>'}
+  return h}
+document.getElementById('cano').innerHTML=canopy();
+document.getElementById('conf').innerHTML=confetti();
+document.getElementById('yr').textContent=new Date().getFullYear();
+</script></body></html>
