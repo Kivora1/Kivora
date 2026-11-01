@@ -132,12 +132,19 @@ background:radial-gradient(60% 70% at 20% 30%,var(--c),transparent 70%),radial-g
 .mist.off{opacity:0;transform:translateY(-30px) scale(1.12);-webkit-backdrop-filter:blur(0);backdrop-filter:blur(0);pointer-events:none}
 @keyframes drift{from{background-position:0% 0%,100% 100%,50% 100%,0 0}to{background-position:100% 100%,0% 0%,50% 0%,0 0}}
 @media(max-width:900px){.dealbox{grid-template-columns:1fr}}
+.rng{position:relative;display:block;width:220px;height:34px}
+.fpan .rng input[type=range]{position:absolute;inset:0;width:100%;height:34px;margin:0;background:transparent;-webkit-appearance:none;appearance:none;cursor:pointer}
+.rng input[type=range]::-webkit-slider-runnable-track{height:1.5px;background:#d9d3c6;border-radius:1px}
+.rng input[type=range]::-moz-range-track{height:1.5px;background:#d9d3c6;border-radius:1px}
+.rng input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:16px;height:16px;margin-top:-7px;border-radius:50%;background:#fff;border:1.2px solid #2c332f;box-shadow:0 3px 8px -3px rgba(0,0,0,.35)}
+.rng input[type=range]::-moz-range-thumb{width:14px;height:14px;border-radius:50%;background:#fff;border:1.2px solid #2c332f}
+#vine{position:absolute;inset:0;pointer-events:none;overflow:visible}
 </style></head><body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><filter id="wc" x="-20%" y="-20%" width="140%" height="140%"><feTurbulence type="fractalNoise" baseFrequency=".018" numOctaves="3" seed="7" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="26"/></filter><defs><filter id="wc2" x="-10%" y="-10%" width="120%" height="120%"><feTurbulence type="fractalNoise" baseFrequency=".05" numOctaves="2" seed="4" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="5"/></filter>
 <g id="lf"><path d="M0 0C11-12 9-42 1-64C-9-44-10-14 0 0Z" fill="currentColor" fill-opacity=".7" stroke="currentColor" stroke-opacity=".55" stroke-width="1"/><path d="M0-3C1-24 1-44 1-58" fill="none" stroke="currentColor" stroke-opacity=".4" stroke-width=".8"/></g>
 <g id="rl"><path d="M0 0C12-6 14-22 0-26C-14-22-12-6 0 0Z" fill="currentColor" fill-opacity=".7" stroke="currentColor" stroke-opacity=".5" stroke-width=".9"/><path d="M0-2V-21" stroke="currentColor" stroke-opacity=".35" stroke-width=".7"/></g>
 <g id="pt"><path d="M0 0C-9-6-10-21 0-26C10-21 9-6 0 0Z" fill="currentColor" fill-opacity=".68" stroke="currentColor" stroke-opacity=".5" stroke-width=".8"/></g>
-<g id="fl"><use href="#pt"/><use href="#pt" transform="rotate(72)"/><use href="#pt" transform="rotate(144)"/><use href="#pt" transform="rotate(216)"/><use href="#pt" transform="rotate(288)"/><circle r="3" fill="#c97b5f" fill-opacity=".85"/></g><g id="ol"><ellipse rx="3.8" ry="5.4" cy="-4" fill="#4a2f48" fill-opacity=".88"/></g><g id="bb"><circle r="2.4" cy="-2" fill="#6f87a3" fill-opacity=".85"/></g><g id="ml"><path d="M0 0C2.1-2 1.9-7.2.2-11C-1.7-7.4-1.9-2.2 0 0Z" fill="#9fc0ac" stroke="#4f7561" stroke-width=".5" stroke-opacity=".7" stroke-linejoin="round"/><path d="M0-.8C.2-4.4.2-7.2.2-9.4" fill="none" stroke="#4f7561" stroke-width=".4" stroke-opacity=".5"/></g></defs></svg>
+<g id="fl"><use href="#pt"/><use href="#pt" transform="rotate(72)"/><use href="#pt" transform="rotate(144)"/><use href="#pt" transform="rotate(216)"/><use href="#pt" transform="rotate(288)"/><circle r="3" fill="#c97b5f" fill-opacity=".85"/></g><g id="ol"><ellipse rx="3.8" ry="5.4" cy="-4" fill="#4a2f48" fill-opacity=".88"/></g><g id="bb"><circle r="2.4" cy="-2" fill="#6f87a3" fill-opacity=".85"/></g><g id="ml"><path d="M0 0C1.43-1.36 1.29-4.9.14-7.5C-1.16-5.03-1.29-1.5 0 0Z" fill="#f4f1ea" stroke="#2c332f" stroke-width=".55" stroke-opacity=".85" stroke-linejoin="round"/><path d="M0-.5C.14-3 .14-4.9.14-6.4" fill="none" stroke="#2c332f" stroke-width=".35" stroke-opacity=".6"/></g></defs></svg>
 <div class="top"><span>Paiement 100 % sécurisé</span><b>·</b><span>Retour sous 14 jours</span><b>·</b><span>Boutique gérée par des Français</span></div>
 <header><span></span>
 <div class="brand"><h1>KIV<svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="14" r="12" fill="#a9c4b0"/><circle cx="13" cy="26" r="12" fill="#e9b9a2"/><circle cx="27" cy="26" r="12" fill="#a9bfd3"/></svg>RA</h1><small>maison · quotidien · essentiels</small></div>
@@ -146,7 +153,7 @@ background:radial-gradient(60% 70% at 20% 30%,var(--c),transparent 70%),radial-g
 <div class="seg" id="seg"></div>
 <label class="srch"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4 4"/></svg><input id="q" type="search" placeholder="Rechercher un article…" autocomplete="off" aria-label="Rechercher un article"></label>
 <button id="ftog" aria-expanded="false">Filtres</button>
-<div class="fpan" id="fpan" hidden><label>Prix maximum : <b id="pv">sans limite</b><input type="range" id="pr" min="0" max="50" step="1" value="50"></label><label>Trier par<select id="so"><option value="rel">Notre sélection</option><option value="pa">Prix croissant</option><option value="pd">Prix décroissant</option><option value="az">Nom A → Z</option></select></label></div>
+<div class="fpan" id="fpan" hidden><label><span>Prix maximum : <b id="pv">sans limite</b></span><span class="rng"><svg id="vine" viewBox="0 0 220 34" width="220" height="34" aria-hidden="true"></svg><input type="range" id="pr" min="0" max="50" step="1" value="50"></span></label><label>Trier par<select id="so"><option value="rel">Notre sélection</option><option value="pa">Prix croissant</option><option value="pd">Prix décroissant</option><option value="az">Nom A → Z</option></select></label></div>
 </div></div>
 <div id="deal"></div>
 <main class="cols" id="secs"></main>
@@ -259,16 +266,18 @@ function pickSpot(){var n;do{n=Math.floor(Math.random()*SPOT.length)}while(n===L
 function showLeaf(grow){var s=SPOT[LS.c],g=leafG(s[0],s[1],s[2],'gro');g.id='cl';$('curl').appendChild(g);if(grow&&g.firstChild.animate&&!reduced())g.firstChild.animate([{transform:'scale(0)'},{transform:'scale(1.2)',offset:.7},{transform:'scale(1)'}],{duration:1100,easing:'ease-out'})}
 function leafInit(){(LS.f||[]).slice(-6).forEach(function(p){$('pile').appendChild(leafG(p[0],p[1],p[2]))});
   if(LS.c==null||LS.c>=SPOT.length||LS.p){var g=LS.p;LS.c=pickSpot();LS.p=0;lsave();showLeaf(g)}else showLeaf(false)}
-function dropLeaf(){
-  var g=$('cl');if(!g||LS.p)return;
+var FALLING=false;
+function dropLeaf(cb){
+  var g=$('cl');if(!g||LS.p){if(cb)cb();return}
   var s=SPOT[LS.c],x0=s[0],y0=s[1],a0=s[2],sg=Math.random()<.5?1:-1,a1=Math.round(sg*(72+Math.random()*36)),
-  x1=+(sg>0?11+Math.random()*13:20+Math.random()*13).toFixed(1),y1=+(37.5+Math.random()*2).toFixed(1);
+  x1=+(sg>0?11+Math.random()*13:20+Math.random()*13).toFixed(1),y1=+(37.5+Math.random()*2).toFixed(1),dy=y1-y0;
   LS.f.push([x1,y1,a1]);if(LS.f.length>6)LS.f.shift();LS.c=null;LS.p=1;lsave();
   var fin='translate('+x1+'px,'+y1+'px) rotate('+a1+'deg)';
-  var done=function(){(g.getAnimations?g.getAnimations():[]).forEach(function(an){an.cancel()});g.style.transform=fin;g.removeAttribute('id');g.firstChild.removeAttribute('class');$('pile').appendChild(g);while($('pile').children.length>6)$('pile').removeChild($('pile').firstChild)};
+  var done=function(){(g.getAnimations?g.getAnimations():[]).forEach(function(an){an.cancel()});g.style.transform=fin;g.removeAttribute('id');g.firstChild.removeAttribute('class');$('pile').appendChild(g);while($('pile').children.length>6)$('pile').removeChild($('pile').firstChild);FALLING=false;if(cb)cb()};
   if(!g.animate||reduced()){done();return}
   var T=function(x,y,a){return 'translate('+x+'px,'+y+'px) rotate('+a+'deg)'};
-  var an=g.animate([{transform:T(x0,y0,a0),offset:0},{transform:T(x0+3,y0+(y1-y0)*.35,a0+50),offset:.35},{transform:T(x0-2,y0+(y1-y0)*.7,a0+110),offset:.7},{transform:fin,offset:1}],{duration:1500,easing:'ease-in',fill:'forwards'});
+  FALLING=true;
+  var an=g.animate([{transform:T(x0,y0,a0),offset:0},{transform:T(x0+4,y0+dy*.22,a0+45),offset:.22},{transform:T(x0-3,y0+dy*.48,a0-30),offset:.48},{transform:T(x0+3,y0+dy*.74,a0+70),offset:.74},{transform:fin,offset:1}],{duration:2000,easing:'ease-in-out',fill:'forwards'});
   an.onfinish=done}
 function newLeaf(){if(!LS.p||$('cl'))return;LS.c=pickSpot();LS.p=0;lsave();showLeaf(true)}
 /* recherche, filtres, affichage */
@@ -286,14 +295,14 @@ function filtered(){
 function active(){return !!(S.q.trim()||S.sec!=='all'||S.max<MAXE||S.sort!=='rel')}
 function buildBar(){
   $('seg').innerHTML=[['all','Toutes'],['home','Home'],['everyday','Everyday'],['essentials','Essentials']].map(function(c){return '<button class="chip'+(S.sec===c[0]?' on':'')+'" data-cat="'+c[0]+'" onclick="setSec(\''+c[0]+'\')"><i></i>'+c[1]+'</button>'}).join('');
-  $('pr').max=MAXE;$('pr').value=S.max;$('pv').textContent=S.max<MAXE?'jusqu’à '+S.max+' €':'sans limite'}
+  $('pr').max=MAXE;$('pr').value=S.max;$('pv').textContent=S.max<MAXE?'jusqu’à '+S.max+' €':'sans limite';growVine()}
 function syncBar(){buildBar();$('q').value=S.q;$('so').value=S.sort}
 function setSec(c){S.sec=c;S.lim=12;buildBar();draw()}
 function goSec(c){S.sec=c;S.lim=12;syncBar();draw();$('bar').scrollIntoView({behavior:reduced()?'auto':'smooth'})}
 function resetS(){S.q='';S.sec='all';S.max=MAXE;S.sort='rel';S.lim=12;syncBar();draw()}
 function bindBar(){
   $('q').oninput=function(){S.q=this.value;S.lim=12;draw()};
-  $('pr').oninput=function(){S.max=+this.value;S.lim=12;$('pv').textContent=S.max<MAXE?'jusqu’à '+S.max+' €':'sans limite';draw()};
+  $('pr').oninput=function(){S.max=+this.value;S.lim=12;$('pv').textContent=S.max<MAXE?'jusqu’à '+S.max+' €':'sans limite';growVine();draw()};
   $('so').onchange=function(){S.sort=this.value;S.lim=12;draw()};
   $('ftog').onclick=function(){var o=$('fpan').hidden;$('fpan').hidden=!o;this.setAttribute('aria-expanded',o?'true':'false')}}
 function colsHTML(){return SECS.map(function(s,i){
@@ -321,6 +330,18 @@ function setup(){
   DEAL=null;if(DEALS_OK){var ds=products.filter(function(p){return p.deal&&p.deal<p.price});if(ds.length)DEAL=ds[weekIdx()%ds.length]}
   MAXE=products.length?Math.ceil(Math.max.apply(null,products.map(function(p){return p.price}))/100):50;S.max=MAXE;
   buildBar();draw();render();ldjson()}
+var VW=220;
+function buildVine(){
+  var d='M0 17',h='',x,i;for(x=4;x<=VW;x+=4)d+='L'+x+' '+(17+3.2*Math.sin(x/10)).toFixed(1);
+  h+='<path id="vstem" d="'+d+'" pathLength="1" fill="none" stroke="#8a8f7a" stroke-width="1.5" stroke-linecap="round" stroke-opacity=".9" style="stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset .25s"/>';
+  for(i=0,x=16;x<VW-6;x+=20,i++){var y=17+3.2*Math.sin(x/10);
+    h+='<g transform="translate('+x+' '+y.toFixed(1)+') rotate('+(i%2?145:35)+')"><use href="#lf" class="gl" data-x="'+x+'" style="color:'+(i%2?'#94a08a':'#a9c4b0')+';transform:scale(0)"/></g>'}
+  $('vine').innerHTML=h}
+function growVine(){
+  if(!$('vstem'))buildVine();
+  var f=MAXE>0?S.max/MAXE:1,reach=8+f*(VW-16);
+  $('vstem').style.strokeDashoffset=1-reach/VW;
+  var e=$('vine').querySelectorAll('.gl');for(var k=0;k<e.length;k++)e[k].style.transform='scale('+(+e[k].getAttribute('data-x')<=reach?.2:0)+')'}
 function toast(m){var t=$('toast');t.textContent=m;t.classList.add('on');clearTimeout(window._t);window._t=setTimeout(function(){t.classList.remove('on')},1700)}
 function save(){try{localStorage.setItem('cart',JSON.stringify(cart))}catch(e){}render()}
 function add(id){cart[id]=Math.min((cart[id]||0)+1,10);var p=products.filter(function(x){return x.id===id})[0];toast((p?p.name:'Article')+' ajouté au panier');save()}
@@ -333,7 +354,8 @@ function render(){
   $('count').textContent=n;if(lastN>=0&&n>lastN){var b=$('count');b.classList.remove('pop');void b.offsetWidth;b.classList.add('pop')}lastN=n;$('count').style.display=n?'flex':'none';$('total').textContent=eur(t);$('pay').disabled=!n;growGarden(cnt,n)}
 function card(p){return '<div class="card" data-cat="'+p.cat+'" onclick="bloom(this,\''+p.cat+'\')"><div class="img'+(p.image?' has':'')+'">'+(p.image?'<img src="'+p.image+'" alt="'+p.name+'">':'')+'</div><strong>'+p.name+'</strong><p>'+p.desc+'</p><span class="price">'+eur(price(p))+'</span><button class="add" onclick="add(\''+p.id+'\')">Ajouter au panier</button></div>'}
 Promise.all([fetch('/products.json').then(function(r){return r.json()}),fetch('/api/checkout').then(function(r){return r.json()}).then(function(d){return !!d&&d.deals===1}).catch(function(){return false})]).then(function(a){products=a[0];DEALS_OK=a[1];setup()});
-function openCart(){$('cart').classList.add('open');$('veil').classList.add('on');dropLeaf()}
+function showCart(){$('cart').classList.add('open');$('veil').classList.add('on')}
+function openCart(){if(FALLING)return;dropLeaf(showCart)}
 function closeCart(){$('cart').classList.remove('open');$('veil').classList.remove('on');setTimeout(newLeaf,450)}
 $('open').onclick=openCart;$('close').onclick=closeCart;$('veil').onclick=closeCart;
 document.addEventListener('keydown',function(e){if(e.key==='Escape')closeCart()});
