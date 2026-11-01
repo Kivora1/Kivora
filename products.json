@@ -5,7 +5,8 @@
   "price": 1990,
   "desc": "Gardez vos tiroirs ordonnés et retrouvez vos petits objets facilement.",
   "image": "",
-  "cat": "home"
+  "cat": "home",
+  "deal": 1590
  },
  {
   "id": "KIVORA-002",
@@ -21,7 +22,8 @@
   "price": 1690,
   "desc": "Retirez les poils des textiles compatibles, sans rouleaux jetables.",
   "image": "",
-  "cat": "everyday"
+  "cat": "everyday",
+  "deal": 1290
  },
  {
   "id": "KIVORA-004",
@@ -37,6 +39,7 @@
   "price": 2490,
   "desc": "Libérez de la place sur votre bureau et adaptez la position de l’écran.",
   "image": "",
-  "cat": "essentials"
+  "cat": "essentials",
+  "deal": 1990
  }
 ]
