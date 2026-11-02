@@ -163,6 +163,10 @@ background:radial-gradient(60% 70% at 20% 30%,var(--c),transparent 70%),radial-g
 .pts li::before{content:"";flex:0 0 12px;height:12px;margin-top:3px;background:var(--c);border-radius:0 100% 0 100%;opacity:.9}
 @media(max-width:720px){.sh-card{grid-template-columns:1fr;padding:18px;border-radius:24px 24px 0 0;max-height:92vh}#sheet{align-items:end;padding:0}}
 .cartbtn.wait{cursor:progress;border-color:var(--ink)}
+.phil{justify-self:start;font-size:.66rem;letter-spacing:.26em;text-transform:uppercase;color:var(--mut);text-decoration:none;padding:6px 0;border-bottom:1px solid transparent;transition:.25s}
+.phil:hover{color:var(--ink);border-bottom-color:#a9c4b0}
+@media(max-width:700px){.phil{display:none}}
+.cartbtn svg{clip-path:circle(22px at 50% 50%)}
 </style></head><body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><filter id="wc" x="-20%" y="-20%" width="140%" height="140%"><feTurbulence type="fractalNoise" baseFrequency=".018" numOctaves="3" seed="7" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="26"/></filter><defs><filter id="wc2" x="-10%" y="-10%" width="120%" height="120%"><feTurbulence type="fractalNoise" baseFrequency=".05" numOctaves="2" seed="4" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="5"/></filter>
 <g id="lf"><path d="M0 0C11-12 9-42 1-64C-9-44-10-14 0 0Z" fill="currentColor" fill-opacity=".7" stroke="currentColor" stroke-opacity=".55" stroke-width="1"/><path d="M0-3C1-24 1-44 1-58" fill="none" stroke="currentColor" stroke-opacity=".4" stroke-width=".8"/></g>
@@ -170,9 +174,9 @@ background:radial-gradient(60% 70% at 20% 30%,var(--c),transparent 70%),radial-g
 <g id="pt"><path d="M0 0C-9-6-10-21 0-26C10-21 9-6 0 0Z" fill="currentColor" fill-opacity=".68" stroke="currentColor" stroke-opacity=".5" stroke-width=".8"/></g>
 <g id="fl"><use href="#pt"/><use href="#pt" transform="rotate(72)"/><use href="#pt" transform="rotate(144)"/><use href="#pt" transform="rotate(216)"/><use href="#pt" transform="rotate(288)"/><circle r="3" fill="#c97b5f" fill-opacity=".85"/></g><g id="ol"><ellipse rx="3.8" ry="5.4" cy="-4" fill="#4a2f48" fill-opacity=".88"/></g><g id="bb"><circle r="2.4" cy="-2" fill="#6f87a3" fill-opacity=".85"/></g><g id="ml"><path d="M0 0C1.43-1.36 1.29-4.9.14-7.5C-1.16-5.03-1.29-1.5 0 0Z" fill="#f4f1ea" stroke="#2c332f" stroke-width=".55" stroke-opacity=".85" stroke-linejoin="round"/><path d="M0-.5C.14-3 .14-4.9.14-6.4" fill="none" stroke="#2c332f" stroke-width=".35" stroke-opacity=".6"/></g></defs></svg>
 <div class="top"><span>Paiement 100 % sécurisé</span><b>·</b><span>Retour sous 14 jours</span><b>·</b><span>Boutique gérée par des Français</span></div>
-<header><span></span>
+<header><a class="phil" href="/philosophie.html">Notre philosophie</a>
 <div class="brand"><h1>KIV<svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="14" r="12" fill="#a9c4b0"/><circle cx="13" cy="26" r="12" fill="#e9b9a2"/><circle cx="27" cy="26" r="12" fill="#a9bfd3"/></svg>RA</h1><small>maison · quotidien · essentiels</small></div>
-<button class="cartbtn" id="open" aria-label="Ouvrir le panier"><svg viewBox="0 0 44 44" width="44" height="44" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><g transform="translate(11 11)"><path d="M5 8h14l-1 12H6L5 8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></g><g id="pile"></g><g id="curl"></g></svg><span class="badge" id="count">0</span></button></header>
+<button class="cartbtn" id="open" aria-label="Ouvrir le panier"><svg viewBox="0 0 44 44" width="44" height="44" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><g id="bagw"><g transform="translate(11 11)"><path d="M5 8h14l-1 12H6L5 8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></g></g><g id="pile"></g><g id="curl"></g><g id="wind" fill="none" stroke="#2c332f" stroke-width=".8" stroke-linecap="round"><path pathLength="1" d="M-4 14C10 8 24 20 48 12" style="stroke-dasharray:.35 1.4;stroke-dashoffset:.35;opacity:0"/><path pathLength="1" d="M-4 24C12 18 26 30 48 22" style="stroke-dasharray:.35 1.4;stroke-dashoffset:.35;opacity:0"/><path pathLength="1" d="M-4 33C10 28 24 38 48 31" style="stroke-dasharray:.35 1.4;stroke-dashoffset:.35;opacity:0"/></g></svg><span class="badge" id="count">0</span></button></header>
 <div class="bar" id="bar"><div class="bar-in">
 <div class="seg" id="seg"></div>
 <label class="srch"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4 4"/></svg><input id="q" type="search" placeholder="Rechercher un article…" autocomplete="off" aria-label="Rechercher un article"></label>
@@ -183,7 +187,7 @@ background:radial-gradient(60% 70% at 20% 30%,var(--c),transparent 70%),radial-g
 <main class="cols" id="secs"></main>
 <section class="sec" id="res" hidden></section>
 <section class="promise"><div><strong>Paiement sécurisé</strong><span>Réglez par carte via Stripe, sans jamais nous transmettre vos données bancaires.</span></div><div><strong>Retour sous 14 jours</strong><span>Un doute ? Vous disposez de 14 jours pour changer d’avis, comme la loi le prévoit.</span></div><div><strong>Une équipe française</strong><span>Une petite boutique gérée par des Français, attentive à chaque commande.</span></div></section>
-<footer><a href="/mentions-legales.html">Mentions légales</a> · <a href="/cgv.html">CGV</a> · <a href="/confidentialite.html">Confidentialité</a> · <a href="/retours.html">Retours</a><span style="display:block;margin-top:14px">© <span id="yr"></span> KIVORA · Boutique gérée par des Français</span></footer>
+<footer><a href="/philosophie.html">Notre philosophie</a> · <a href="/mentions-legales.html">Mentions légales</a> · <a href="/cgv.html">CGV</a> · <a href="/confidentialite.html">Confidentialité</a> · <a href="/retours.html">Retours</a><span style="display:block;margin-top:14px">© <span id="yr"></span> KIVORA · Boutique gérée par des Français</span></footer>
 <div id="veil"></div>
 <div id="sveil" onclick="closeSheet()"></div><div id="sheet" aria-hidden="true" onclick="if(event.target===this)closeSheet()"></div>
 <aside id="cart"><div class="row"><strong style="font:400 1.3rem var(--serif)">Votre panier</strong><button id="close">Fermer</button></div>
@@ -367,7 +371,7 @@ function ldjson(){if(_ld&&_ld.parentNode)_ld.parentNode.removeChild(_ld);_ld=doc
 function setup(){
   DEAL=null;if(DEALS_OK){var ds=products.filter(function(p){return p.deal&&p.deal<p.price});if(ds.length)DEAL=ds[weekIdx()%ds.length]}
   MAXE=products.length?Math.ceil(Math.max.apply(null,products.map(function(p){return p.price}))/100):50;S.max=MAXE;
-  buildBar();draw();render();ldjson()}
+  buildBar();draw();render();ldjson();if(typeof location!=='undefined'&&location.hash){var h=document.getElementById(location.hash.slice(1));if(h&&h.scrollIntoView)h.scrollIntoView()}}
 var VW=220;
 function buildVine(){
   var d='M0 17',h='',x,i;for(x=4;x<=VW;x+=4)d+='L'+x+' '+(17+3.2*Math.sin(x/10)).toFixed(1);
@@ -393,6 +397,21 @@ function sheetHTML(p){
 function openSheet(id){var p=products.filter(function(x){return x.id===id})[0];if(!p)return;SHP=p;$('sheet').innerHTML=sheetHTML(p);$('sheet').classList.add('on');$('sheet').setAttribute('aria-hidden','false');$('sveil').classList.add('on');document.body.style.overflow='hidden';var b=$('sheet').querySelector('.sh-x');if(b&&b.focus)b.focus()}
 function closeSheet(){if(!SHP)return;SHP=null;$('sheet').classList.remove('on');$('sheet').setAttribute('aria-hidden','true');$('sveil').classList.remove('on');document.body.style.overflow=''}
 function setPhoto(i){var ph=photosOf(SHP),im=$('shimg');if(im)im.src=ph[i];var t=$('sheet').querySelectorAll('.th');for(var k=0;k<t.length;k++)t[k].classList.toggle('on',k===i)}
+var WIND_AT=5;
+function windLeaf(cb){
+  var g=$('cl'),pile=$('pile'),items=[].slice.call(pile.children),old=LS.f.slice(-items.length),rm=function(n){if(n&&n.parentNode)n.parentNode.removeChild(n)};
+  var s=SPOT[LS.c],x0=s[0],y0=s[1],a0=s[2];
+  LS.f=[];LS.c=null;LS.p=1;lsave();
+  var T=function(x,y,a){return 'translate('+x+'px,'+y+'px) rotate('+a+'deg)'};
+  if(!g||!g.animate){items.forEach(rm);rm(g);LS.c=pickSpot();LS.p=0;lsave();showLeaf(false);if(cb)cb();return}
+  FALLING=true;try{$('open').classList.add('wait')}catch(e){}
+  try{[].slice.call($('wind').children).forEach(function(p,i){if(p.animate)p.animate([{strokeDashoffset:.35,opacity:0},{opacity:.75,offset:.25},{strokeDashoffset:-1.1,opacity:0}],{duration:1700,delay:i*170,easing:'ease-in-out',fill:'both'})});
+  var bag=$('bagw');if(bag&&bag.animate)bag.animate([{transform:'rotate(0deg)'},{transform:'rotate(3.5deg)',offset:.3},{transform:'rotate(-2.5deg)',offset:.6},{transform:'rotate(0deg)'}],{duration:2300,easing:'ease-in-out'})}catch(e){}
+  items.forEach(function(el,i){var p=old[i]||[22,38,90],x=p[0],y=p[1],a=p[2];
+    if(el.animate)el.animate([{transform:T(x,y,a),opacity:1,offset:0},{transform:T(x+10,y-10,a+120),opacity:1,offset:.3},{transform:T(x+34,y-22,a+300),opacity:.9,offset:.65},{transform:T(x+70,y-34,a+520),opacity:0,offset:1}],{duration:1900,delay:150+i*130,easing:'ease-in',fill:'forwards'})});
+  g.animate([{transform:T(x0,y0,a0),opacity:1,offset:0},{transform:T(x0,y0,a0+22),opacity:1,offset:.12},{transform:T(x0-1,y0,a0-18),opacity:1,offset:.22},{transform:T(x0+8,y0-5,a0+120),opacity:1,offset:.5},{transform:T(x0+70,y0-30,a0+460),opacity:0,offset:1}],{duration:2100,delay:500,easing:'ease-in',fill:'forwards'});
+  setTimeout(function(){items.forEach(rm);rm(g);LS.c=pickSpot();LS.p=0;lsave();showLeaf(true);
+    setTimeout(function(){FALLING=false;try{$('open').classList.remove('wait')}catch(e){}if(cb)cb()},1300)},3100)}
 function toast(m){var t=$('toast');t.textContent=m;t.classList.add('on');clearTimeout(window._t);window._t=setTimeout(function(){t.classList.remove('on')},1700)}
 function save(){try{localStorage.setItem('cart',JSON.stringify(cart))}catch(e){}render()}
 function add(id){cart[id]=Math.min((cart[id]||0)+1,10);var p=products.filter(function(x){return x.id===id})[0];toast((p?p.name:'Article')+' ajouté au panier');save()}
@@ -406,7 +425,7 @@ function render(){
 function card(p){return '<div class="card" data-cat="'+p.cat+'" onclick="bloom(this,\''+p.cat+'\')"><div class="img"></div><strong>'+p.name+'</strong><p>'+p.desc+'</p><span class="price">'+eur(price(p))+'</span><div class="acts"><button class="peek" onclick="event.stopPropagation();openSheet(\''+p.id+'\')">Découvrir</button><button class="addq" aria-label="Ajouter '+p.name+' au panier" onclick="add(\''+p.id+'\')">+</button></div></div>'}
 Promise.all([fetch('/products.json').then(function(r){return r.json()}),fetch('/api/checkout').then(function(r){return r.json()}).then(function(d){return !!d&&d.deals===1}).catch(function(){return false})]).then(function(a){products=a[0];DEALS_OK=a[1];setup()});
 function showCart(){$('cart').classList.add('open');$('veil').classList.add('on')}
-function openCart(){if(FALLING)return;if(!$('cl')&&LS.p){LS.c=pickSpot();LS.p=0;lsave();showLeaf(false)}dropLeaf(showCart)}
+function openCart(){if(FALLING)return;if(!$('cl')&&LS.p){LS.c=pickSpot();LS.p=0;lsave();showLeaf(false)}if(LS.f.length>=WIND_AT&&$('cl'))windLeaf(showCart);else dropLeaf(showCart)}
 function closeCart(){$('cart').classList.remove('open');$('veil').classList.remove('on');setTimeout(newLeaf,450)}
 $('open').onclick=openCart;$('close').onclick=closeCart;$('veil').onclick=closeCart;
 document.addEventListener('keydown',function(e){if(e.key==='Escape'){closeCart();closeSheet()}});
