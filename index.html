@@ -316,6 +316,7 @@ function leafInit(){
   if(LS.c==null||LS.c>=SPOT.length||LS.p){var g=LS.p;LS.c=pickSpot();LS.p=0;lsave();showLeaf(g)}else showLeaf(false)}
 var FALLING=false;
 function FT(x,y,a){return 'translate('+x+'px,'+y+'px) rotate('+a+'deg)'}
+function KS(x,y,a,sx,o,e){var k={transform:FT(x,y,a)+' scale('+sx+',1)',offset:o};if(e)k.easing=e;return k}
 function K(x,y,a,o,e){var k={transform:FT(x,y,a),offset:o};if(e)k.easing=e;return k}
 var FALLS=[
  function(c){/* balancement doux, de gauche à droite */
@@ -323,10 +324,13 @@ var FALLS=[
   return {d:5200,k:[K(c.x0,c.y0,c.a0,0,E),K(c.x0,c.y0,c.a0+9,.07,E),K(c.x0,c.y0,c.a0-8,.14,E),
    K(c.x0-5,c.y0+c.dy*.2,c.a0-38,.3,E),K(c.x0+5,c.y0+c.dy*.42,c.a0+38,.48,E),K(c.x0-4.5,c.y0+c.dy*.64,c.a0-34,.66,E),
    K(c.x0+4,c.y0+c.dy*.84,c.a0+28,.82,E),K(c.x1-s*1.5,c.y1-1.5,c.a1+(c.a1>0?-12:12),.93,E),K(c.x1,c.y1,c.a1,1)]}},
- function(c){/* tourbillon à la verticale */
-  var E='ease-in-out',k=[K(c.x0,c.y0,c.a0,0,E),K(c.x0,c.y0,c.a0+12,.08,E),K(c.x0,c.y0,c.a0-10,.16,E)],af=c.a1+360*Math.round((c.a0+1440-c.a1)/360),i,u;
-  for(i=0;i<=10;i++){u=i/10;k.push(K(c.x0+3.5*Math.sin(u*Math.PI*6),c.y0+c.dy*(.05+.9*u),c.a0+u*(af-c.a0),+(.2+.7*u).toFixed(3),'linear'))}
-  k.push(K(c.x1,c.y1,af,1));return {d:4600,k:k}},
+ function(c){/* toupie : la feuille tourne doucement sur son axe, en descendant presque droit */
+  var E='ease-in-out',N=24,turns=2,k=[KS(c.x0,c.y0,c.a0,1,0,E),KS(c.x0,c.y0,c.a0+10,1,.07,E),KS(c.x0,c.y0,c.a0-8,1,.14,E)],i,u,ph,sx,sm,tl;
+  for(i=0;i<=N;i++){u=i/N;ph=u*turns*2*Math.PI;sx=Math.cos(ph);sx=+((sx<0?-1:1)*Math.max(.16,Math.abs(sx))).toFixed(3);
+    sm=Math.min(1,u*4);sm=sm*sm*(3-2*sm);tl=c.a0*(1-sm)+12*Math.sin(u*Math.PI*2.4)*(1-.5*u);
+    k.push(KS(+(c.x0+2.6*Math.sin(u*Math.PI*3)).toFixed(2),+(c.y0+c.dy*(.06+.86*u)).toFixed(2),+tl.toFixed(1),sx,+(.2+.62*u).toFixed(3),'linear'))}
+  k.push(KS(c.x1,+(c.y1-.5).toFixed(1),+(c.a1*.4).toFixed(1),1,.9,E),KS(c.x1,c.y1,+(c.a1*.8).toFixed(1),1,.95,E),KS(c.x1,c.y1,c.a1,1,1));
+  return {d:4800,k:k}},
  function(c){/* chute libre, avec un petit rebond */
   var E='ease-in-out';
   return {d:3800,k:[K(c.x0,c.y0,c.a0,0,E),K(c.x0,c.y0,c.a0+10,.12,E),K(c.x0,c.y0,c.a0-8,.22,E),K(c.x0,c.y0,c.a0+8,.3,E),K(c.x0,c.y0,c.a0-4,.36,'cubic-bezier(.55,0,.9,.55)'),
