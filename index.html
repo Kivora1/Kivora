@@ -120,14 +120,16 @@ footer a{color:inherit}
 .deal.sec{padding:46px 24px}
 .dealbox{position:relative;display:grid;grid-template-columns:1fr 1.1fr;gap:30px;align-items:center;max-width:860px;margin:0 auto;background:rgba(255,255,255,.74);border:1px solid rgba(44,51,47,.06);border-radius:24px;padding:22px;overflow:hidden;box-shadow:0 18px 40px -26px rgba(44,51,47,.45)}
 .dpic{position:relative}.dpic .img{margin:0}
-.pct{position:absolute;top:12px;left:12px;background:var(--ink);color:#fff;border-radius:999px;font-size:.78rem;padding:4px 11px;letter-spacing:.06em}
+.pct{position:absolute;top:12px;left:12px;z-index:1;background:rgba(255,255,255,.72);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);border:1px solid var(--c);color:var(--i2);border-radius:999px;font:italic .85rem var(--serif);padding:4px 13px;letter-spacing:.03em}
 .dtxt h2{font-size:clamp(1.6rem,3vw,2.2rem);margin:8px 0}
 .dtxt .cap{margin:0 0 6px}
 .dp{display:flex;align-items:baseline;gap:12px;margin:12px 0 6px;font-family:var(--serif)}.dp s{color:var(--mut)}.dp b{font-weight:500;font-size:1.6rem}
-.left{margin:0 0 14px;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--i2)}
+.left{margin:0 0 6px;font:italic .92rem var(--serif);color:var(--i2)}
+.dnote{margin:0 0 16px;font-size:.8rem;line-height:1.5;color:var(--mut)}
+.dtxt .eb{display:inline-flex;align-items:center;gap:12px}.dtxt .eb::before{content:"";width:26px;height:1.5px;background:var(--c);border-radius:1px}
 .mist{position:absolute;inset:0;z-index:4;cursor:pointer;display:grid;place-items:center;border-radius:24px;
 background:radial-gradient(60% 70% at 20% 30%,var(--c),transparent 70%),radial-gradient(55% 65% at 80% 70%,var(--c),transparent 72%),radial-gradient(70% 60% at 50% 100%,var(--c),transparent 70%),rgba(255,255,255,.4);background-size:170% 170%,170% 170%,170% 170%,auto;
--webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px);animation:drift 9s ease-in-out infinite alternate;transition:opacity 2.6s ease,transform 2.8s ease,backdrop-filter 2.4s,-webkit-backdrop-filter 2.4s}
+-webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px);animation:drift 9s ease-in-out infinite alternate;transition:opacity 3.4s ease,transform 3.6s ease,backdrop-filter 3.2s,-webkit-backdrop-filter 3.2s}
 .mist span{font:italic 1.05rem var(--serif);color:var(--i2);letter-spacing:.03em;padding:0 20px;text-align:center}
 .mist.off{opacity:0;transform:translateY(-30px) scale(1.12);-webkit-backdrop-filter:blur(0);backdrop-filter:blur(0);pointer-events:none}
 @keyframes drift{from{background-position:0% 0%,100% 100%,50% 100%,0 0}to{background-position:100% 100%,0% 0%,50% 0%,0 0}}
@@ -293,7 +295,7 @@ function norm(t){return String(t||'').toLowerCase().normalize('NFD').replace(/[\
 function parisNow(){var o={};new Intl.DateTimeFormat('en-CA',{timeZone:'Europe/Paris',year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',hourCycle:'h23'}).formatToParts(new Date()).forEach(function(x){o[x.type]=+x.value});return {dn:Math.floor(Date.UTC(o.year,o.month-1,o.day)/864e5),h:o.hour,m:o.minute}}
 function weekIdx(){return Math.floor((parisNow().dn+3)/7)}
 function price(p){return DEAL&&DEAL.id===p.id?p.deal:p.price}
-function left(){var t=parisNow(),d=6-(t.dn+3)%7,h=23-t.h,m=59-t.m;return d>0?d+' j '+h+' h':h+' h '+m+' min'}
+function until(){var t=parisNow(),e=t.dn+6-(t.dn+3)%7;return new Intl.DateTimeFormat('fr-FR',{timeZone:'UTC',weekday:'long',day:'numeric',month:'long'}).format(new Date(e*864e5))}
 /* feuille du panier */
 var SPOT=[[23,14,0],[20,16,-50],[26,16,50],[16,19,-60],[30,19,60],[16.5,25,-85],[29.5,25,85],[17,31,-125],[29,31,125]];
 var LS={f:[],c:null,p:0};
@@ -385,7 +387,7 @@ function resHTML(){
   var r=filtered(),n=r.length,t=S.sec==='all'?'Résultats':SECS.filter(function(s){return s[0]===S.sec})[0][1];
   return (S.sec!=='all'?'<div class="art art-'+S.sec+'" aria-hidden="true">'+ART[S.sec]+'</div>':'')+'<div class="in wide"><div class="rh"><div><span class="eb">'+n+' article'+(n>1?'s':'')+'</span><h2>'+t+'</h2></div><button onclick="resetS()">Tout réinitialiser</button></div>'+(n?'<div class="grid wide">'+r.slice(0,S.lim).map(card).join('')+'</div>'+(n>S.lim?'<button class="more" onclick="S.lim+=12;draw()">Afficher plus</button>':''):EMPTY)+'</div>'}
 function dealHTML(){var D=DEAL;if(!D)return '';var pct=Math.round((1-D.deal/D.price)*100);
-  return '<section class="sec deal" data-cat="'+D.cat+'"><div class="in wide"><div class="dealbox" id="dbox"><div class="dpic"><div class="img"></div><span class="pct">−'+pct+' %</span></div><div class="dtxt"><span class="eb">OFFRE DE LA SEMAINE</span><h2>'+D.name+'</h2><p class="cap">'+D.desc+'</p><div class="dp"><s>'+eur(D.price)+'</s><b>'+eur(D.deal)+'</b></div><p class="left">Il reste '+left()+'</p><div class="dact"><button class="add" onclick="add(\''+D.id+'\')">Ajouter au panier</button><button class="peek" onclick="openSheet(\''+D.id+'\')">Découvrir</button></div></div><div class="mist" id="mist" onclick="lift()"><span>Touchez pour dissiper la brume</span></div></div></div></section>'}
+  return '<section class="sec deal" data-cat="'+D.cat+'"><div class="in wide"><div class="dealbox" id="dbox"><div class="dpic"><div class="img"></div><span class="pct">prix doux · −'+pct+' %</span></div><div class="dtxt"><span class="eb">LE CHOIX DE LA SEMAINE</span><h2>'+D.name+'</h2><p class="cap">'+D.desc+'</p><div class="dp"><s>'+eur(D.price)+'</s><b>'+eur(D.deal)+'</b></div><p class="left">Jusqu\'au '+until()+'</p><p class="dnote">Chaque lundi, nous choisissons un article et lui offrons un prix plus doux.</p><div class="dact"><button class="add" onclick="add(\''+D.id+'\')">Ajouter au panier</button><button class="peek" onclick="openSheet(\''+D.id+'\')">Découvrir</button></div></div><div class="mist" id="mist" onclick="lift()"><span>Touchez pour dissiper la brume</span></div></div></div></section>'}
 function lift(){var m=$('mist');if(m)m.classList.add('off')}
 function drawDeal(){$('deal').innerHTML=dealHTML();if(!DEAL)return;
   if(reduced()||!window.IntersectionObserver){lift();return}
