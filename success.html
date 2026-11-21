@@ -1,4 +1,7 @@
 <!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Merci – KIVORA</title></head>
 <body style="font-family:system-ui;text-align:center;padding:60px 20px">
-<h1>Merci pour votre commande !</h1><p>Votre paiement a bien été reçu. Nous préparons votre commande.</p><a href="/">Retour à la boutique</a>
-<script>try{localStorage.removeItem('cart');localStorage.setItem('kv_bought','1')}catch(e){}</script></body></html>
+<h1>Merci pour votre commande !</h1><p>Votre paiement a bien été reçu. Nous préparons votre commande.</p>
+<p id="st" style="font-style:italic;color:#4f7561"></p><a href="/">Retour à la boutique</a>
+<script>try{localStorage.removeItem('cart');localStorage.setItem('kv_bought','1');
+var id=new URLSearchParams(location.search).get('session_id'),S=JSON.parse(localStorage.getItem('kv_stamps')||'[]');
+if(id&&S.indexOf(id)<0){S.push(id);localStorage.setItem('kv_stamps',JSON.stringify(S));document.getElementById('st').innerHTML='Un tampon vient d’être ajouté à votre carnet. <a href="/atelier.html">Voir l’atelier</a>'}}catch(e){}</script></body></html>

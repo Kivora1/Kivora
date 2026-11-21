@@ -32,7 +32,35 @@ h1.t{margin:14px 0 14px;font:300 clamp(2.2rem,6vw,3.6rem)/1.1 var(--serif)}
 .tag{display:inline-block;margin:0 0 14px;padding:4px 14px;border:1px solid var(--gold);border-radius:999px;font:italic .85rem var(--serif);color:#8a6a35;background:rgba(255,255,255,.6)}
 h2{margin:0 0 14px;font:300 clamp(1.8rem,4vw,2.5rem)/1.15 var(--serif)}
 .head p{margin:0;font:1.06rem/1.8 var(--serif);color:#3d4540}
-.plate{margin:34px 0 0;background:rgba(255,255,255,.55);border:1px solid var(--line);border-radius:6px;padding:26px 22px 20px}
+.mono{font:.66rem ui-monospace,Menlo,Consolas,monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--mut)}
+.plate{position:relative;margin:34px 0 0;background-color:#fbf9f2;background-image:linear-gradient(rgba(111,143,156,.13) 1px,transparent 1px),linear-gradient(90deg,rgba(111,143,156,.13) 1px,transparent 1px);background-size:20px 20px;border:1px solid var(--line);border-radius:4px;padding:34px 22px 0;overflow:hidden}
+.pr{position:absolute;top:14px;right:16px;transform:rotate(6deg);border:2px solid #a4614a;color:#a4614a;border-radius:4px;padding:3px 10px;font:700 .64rem ui-monospace,Menlo,monospace;letter-spacing:.14em;opacity:.8}
+.locked .views,.locked .tools{filter:blur(7px);pointer-events:none;user-select:none}
+.gate{display:none;position:absolute;inset:0;z-index:3;align-items:center;justify-content:center;padding:20px}
+.locked .gate{display:flex}
+.gate div{max-width:360px;text-align:center;background:rgba(250,248,244,.94);border:1px solid var(--line);padding:24px 26px;border-radius:4px;box-shadow:0 10px 30px rgba(60,70,60,.1)}
+.gate h3{margin:0 0 8px;font:300 1.4rem var(--serif)}.gate p{margin:0 0 14px;font:.98rem/1.6 var(--serif);color:#3d4540}
+.gate .btn{padding:11px 24px;font-size:.72rem}
+.cart{display:grid;grid-template-columns:repeat(4,1fr);margin:22px -22px 0;border-top:1px solid #3d4540;background:rgba(255,255,255,.6)}
+.cart div{padding:9px 14px;border-right:1px solid var(--line)}.cart div:last-child{border:0}
+.cart b{display:block;font:400 .98rem var(--serif);color:var(--ink);text-transform:none;letter-spacing:0;margin-top:2px}
+.spec{margin:26px 0 0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:0 40px}
+.spec div{display:flex;justify-content:space-between;gap:14px;padding:9px 0;border-bottom:1px dotted #b9c0ba;font:.98rem var(--serif)}
+.spec dt{font:.66rem ui-monospace,Menlo,monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--mut);align-self:center}.spec dd{margin:0;text-align:right}
+.club{margin-top:54px;padding:40px 0 6px;border-top:1px solid var(--line)}
+.stamps{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;margin:22px 0 14px;max-width:640px}
+.stamps svg{width:100%;height:auto;display:block;overflow:visible}
+.stamps .on{filter:drop-shadow(0 1px 1px rgba(60,70,60,.2))}
+.vote{margin-top:54px;padding:40px 0 6px;border-top:1px solid var(--line)}
+.vb{display:flex;gap:14px;flex-wrap:wrap;margin-top:18px}
+.vb button{display:inline-flex;align-items:center;gap:9px;font:1rem var(--serif);padding:11px 22px;border:1px solid var(--c0,#b9c0ba);background:rgba(255,255,255,.7);color:var(--ink);border-radius:999px;cursor:pointer;transition:.25s}
+.vb button:hover{background:#fff}
+.vb svg{width:20px;height:20px;fill:none;stroke:#a4614a;stroke-width:1.5}
+.vb button[aria-pressed=true]{background:#f7ebe4;border-color:#e9b9a2}
+.vb #up[aria-pressed=true] svg{fill:#e9b9a2}
+.vb em{color:var(--mut);font-size:.9rem}
+#vm{margin:14px 0 0;font:italic 1rem var(--serif);color:var(--i2,#4f7561);min-height:1.5em}
+
 .views{display:grid;grid-template-columns:1fr 1fr;gap:18px}
 .views figure{margin:0;text-align:center}
 .views svg{display:block;width:100%;max-width:340px;height:auto;margin:0 auto;overflow:visible}
@@ -52,7 +80,7 @@ figcaption{margin-top:8px;font:italic .95rem var(--serif);color:var(--mut)}
 #asm{opacity:0;transition:opacity .9s}
 .open #glass{transform:translateX(-52px)}
 .open #asm{opacity:1}
-.keys{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin:30px 0 0;padding:0;list-style:none}
+.keys{display:grid;grid-template-columns:repeat(4,1fr);gap:26px;margin:30px 0 0;padding:0;list-style:none}
 .keys li{font:.98rem/1.65 var(--serif);color:#3d4540}
 .keys strong{display:block;margin-bottom:4px;font:400 1.1rem var(--serif);color:var(--ink)}
 .keys svg{display:block;width:26px;height:26px;margin-bottom:8px}
@@ -65,7 +93,7 @@ figcaption{margin-top:8px;font:italic .95rem var(--serif);color:var(--mut)}
 .btn{display:inline-block;padding:14px 32px;border-radius:999px;background:var(--ink);color:#fff;text-decoration:none;letter-spacing:.12em;font-size:.8rem;text-transform:uppercase}
 footer{text-align:center;color:var(--mut);font-size:.8rem;padding:30px 20px 48px}
 footer a{color:inherit}
-@media(max-width:800px){.views,.keys,.slots{grid-template-columns:1fr}.back{font-size:.6rem;letter-spacing:.14em}.logo{font-size:1.4rem}.plate{padding:20px 12px}}
+@media(max-width:800px){.views,.keys,.slots,.spec{grid-template-columns:1fr}.cart{grid-template-columns:1fr 1fr}.cart div:nth-child(2){border:0}.stamps{grid-template-columns:repeat(3,1fr)}.back{font-size:.6rem;letter-spacing:.14em}.logo{font-size:1.4rem}.plate{padding:20px 12px}}
 @media(prefers-reduced-motion:reduce){#glass,#asm{transition:none}}
 </style></head><body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
@@ -84,9 +112,10 @@ footer a{color:inherit}
 <section class="idea">
 <div class="head"><span class="tag">Première idée · en cours de dessin</span><h2>La demi-tasse</h2>
 <p>Une tasse de thé fine et classique, coupée en deux dans la hauteur. Pour la moitié d’un thé, on prend la moitié d’une tasse : une plaque de verre transparente ferme la coupe, retient le liquide et laisse voir le thé.</p></div>
-<div class="plate" id="plate">
+<div class="plate" id="plate"><span class="pr">PROTOTYPE N°001</span>
 <div class="views">
-<figure><svg viewBox="0 0 300 245" role="img" aria-label="Vue de face : une tasse fine ornée de tiges et de petites fleurs dorées, dont la plaque de verre laisse voir le thé">
+<figure><svg viewBox="0 0 316 245" role="img" aria-label="Vue de face : une tasse fine ornée de tiges et de petites fleurs dorées, dont la plaque de verre laisse voir le thé">
+<path d="M254 64C312 56 306 132 238 142" fill="none" stroke="#3d4540" stroke-width="10" stroke-linecap="round"/><path d="M254 64C312 56 306 132 238 142" fill="none" stroke="#fffdf8" stroke-width="7" stroke-linecap="round"/>
 <g filter="url(#wc)"><path class="por" d="M40 40C40 150 100 205 150 205C200 205 260 150 260 40Z"/></g>
 <rect x="112" y="204" width="76" height="16" rx="3" class="por ink"/>
 <g clip-path="url(#cf)"><rect x="30" y="72" width="240" height="140" class="tea"/><path d="M40 72H260" stroke="#b9823f" stroke-width="1" opacity=".6"/></g>
@@ -98,10 +127,10 @@ footer a{color:inherit}
 <path class="au" d="M66 100C92 134 120 152 150 158C180 152 208 134 234 100"/>
 <use href="#gf" x="66" y="100"/><use href="#gf" x="108" y="146"/><use href="#gf" x="150" y="158"/><use href="#gf" x="192" y="146"/><use href="#gf" x="234" y="100"/>
 <use href="#gl" transform="translate(84 124) rotate(52)"/><use href="#gl" transform="translate(216 124) rotate(128)"/>
+<rect x="245" y="56" width="16" height="11" rx="3" class="fo"/><rect x="229" y="136" width="16" height="11" rx="3" class="fo"/>
 <path class="ax" d="M150 20V232"/>
-</svg><figcaption>Vue de face, côté verre</figcaption></figure>
+</svg><figcaption>Vue de face · l’anse tient à la tasse et au verre</figcaption></figure>
 <figure id="profil"><svg viewBox="0 0 300 245" role="img" aria-label="Vue de profil : la demi-tasse, sa plaque de verre sur la face coupée et son anse">
-<path d="M180 70C238 60 244 128 168 142" fill="none" stroke="#3d4540" stroke-width="10" stroke-linecap="round"/><path d="M180 70C238 60 244 128 168 142" fill="none" stroke="#fffdf8" stroke-width="7" stroke-linecap="round"/>
 <g filter="url(#wc)"><path class="por" d="M70 40H180C180 150 140 205 70 205Z"/></g>
 <rect x="70" y="204" width="38" height="16" class="por ink"/>
 <g clip-path="url(#cp)"><rect x="70" y="72" width="120" height="140" class="tea"/></g>
@@ -109,18 +138,29 @@ footer a{color:inherit}
 <path class="au" d="M72 47C110 54 150 54 178 47"/>
 <path class="au" d="M172 66C172 116 150 164 100 190"/>
 <use href="#gf" x="172" y="86"/><use href="#gf" x="165" y="128"/><use href="#gf" x="144" y="162"/><use href="#gf" x="108" y="186"/>
+<rect x="66" y="66" width="22" height="82" rx="6" class="por ink"/><rect x="63" y="66" width="28" height="7" rx="2" class="fo"/><rect x="63" y="141" width="28" height="7" rx="2" class="fo"/>
 <g id="asm"><path class="ax" d="M18 60H66M18 120H66M18 190H66"/></g>
 <g id="glass"><rect x="63" y="36" width="8" height="188" class="gl"/><path d="M66 46V210" stroke="#fff" stroke-width="1.4" opacity=".8"/></g>
-</svg><figcaption>Vue de profil, la plaque de verre et l’anse</figcaption></figure>
+</svg><figcaption>Vue de profil · l’anse, vue par la tranche, à cheval sur le verre</figcaption></figure>
 </div>
 <div class="tools"><button class="tg" id="tg" aria-pressed="false">Écarter la plaque de verre</button></div>
+<div class="cart mono"><div>Objet<b>Demi-tasse à thé</b></div><div>Échelle<b>1 : 2, naturellement</b></div><div>Dessinée par<b>L’atelier KIVORA</b></div><div>Statut<b>Sérieusement envisagée</b></div></div>
+<div class="gate"><div><h3>Planche réservée à nos clients</h3><p>Un premier achat à la boutique vous ouvre l’atelier et vous offre votre premier tampon.</p><a class="btn" href="/">Découvrir la boutique</a></div></div>
 </div>
 <ul class="keys">
 <li><svg viewBox="0 0 26 26" aria-hidden="true"><path d="M3 5H23C23 15 18 22 13 22C8 22 3 15 3 5Z" fill="none" stroke="#3d4540" stroke-width="1.2"/><path d="M13 3V24" stroke="#9aa39d" stroke-dasharray="3 2"/></svg><strong>Coupée en deux</strong>Une tasse classique, fine, sciée dans la hauteur : on garde la moitié, pour une demi-portion de thé.</li>
 <li><svg viewBox="0 0 26 26" aria-hidden="true"><path d="M3 20C10 20 14 12 22 6" fill="none" stroke="#b8935a" stroke-width="1.3" stroke-linecap="round"/><use href="#gf" x="22" y="6"/><use href="#gf" x="12" y="15"/></svg><strong>Ornements dorés</strong>De fines tiges dorées et de petites fleurs, tracées en douceur le long de la porcelaine.</li>
 <li><svg viewBox="0 0 26 26" aria-hidden="true"><rect x="9" y="3" width="6" height="20" fill="#cfe3ea" fill-opacity=".6" stroke="#6f8f9c"/></svg><strong>Plaque de verre</strong>Transparente, elle ferme la face coupée, retient le thé et le laisse voir.</li>
+<li><svg viewBox="0 0 26 26" aria-hidden="true"><rect x="9" y="5" width="9" height="16" rx="3" fill="#fffdf8" stroke="#3d4540"/><rect x="7" y="5" width="13" height="3" fill="#d9b878" stroke="#b8935a" stroke-width=".4"/><rect x="7" y="18" width="13" height="3" fill="#d9b878" stroke="#b8935a" stroke-width=".4"/></svg><strong>Anse à deux appuis</strong>Collée à la fois à la tasse et au verre, elle fait le lien entre les deux.</li>
 </ul>
+<dl class="spec"><div><dt>Contenance</dt><dd>une demi-tasse, exactement</dd></div><div><dt>Moitiés manquantes</dt><dd>une, volontairement</dd></div><div><dt>Étanchéité</dt><dd>assurée par le verre</dd></div><div><dt>Sérieux</dt><dd>total</dd></div></dl>
 </section>
+
+<section class="club"><h2>Votre carnet de tampons</h2><p class="lead" style="margin:0;max-width:36em;font-size:1.05rem">Chaque commande ajoute un tampon à votre carnet. Ils vous ouvrent l’atelier et, peut-être un jour, les premières demi-tasses.</p>
+<div class="stamps" id="stamps" role="img" aria-label="Carnet de tampons"></div><p class="mono" id="sn"></p></section>
+
+<section class="vote"><h2>Cette idée vous plaît ?</h2><p class="lead" style="margin:0;max-width:36em;font-size:1.05rem">Dites-le nous : votre avis décide si la demi-tasse sort de l’atelier.</p>
+<div class="vb"><button id="up" aria-pressed="false"><svg viewBox="0 0 24 24"><path d="M12 21s-7.5-4.6-9.3-9.2C1.4 8.3 3.6 5 6.8 5c2 0 3.6 1.1 5.2 3 1.6-1.9 3.2-3 5.2-3 3.2 0 5.4 3.3 4.1 6.8C19.5 16.4 12 21 12 21z"/></svg>J’aime l’idée <em id="uc"></em></button><button id="dn" aria-pressed="false">Pas convaincu·e <em id="dc"></em></button></div><p id="vm" aria-live="polite"></p></section>
 
 <section class="soon"><h2>À venir</h2><p class="lead" style="margin:0;max-width:36em">D’autres idées prennent forme. Chacune aura sa place ici, avec son schéma, avant d’arriver à la boutique.</p>
 <div class="slots">
@@ -135,5 +175,24 @@ footer a{color:inherit}
 document.getElementById('yr').textContent=new Date().getFullYear();
 var tg=document.getElementById('tg'),pl=document.getElementById('plate');
 tg.addEventListener('click',function(){var o=pl.classList.toggle('open');tg.setAttribute('aria-pressed',o);tg.textContent=o?'Remettre la plaque de verre':'Écarter la plaque de verre'});
+
+var ST=[];try{ST=JSON.parse(localStorage.getItem('kv_stamps')||'[]')}catch(e){}
+if(!ST.length&&location.hash!=='#apercu')pl.classList.add('locked');
+function stp(i,on){var p='';for(var a=0;a<=360;a+=2){var t=a*Math.PI/180,r=44+3.2*Math.cos(18*t);p+=(a?'L':'M')+(50+r*Math.cos(t)).toFixed(1)+' '+(50+r*Math.sin(t)).toFixed(1)}p+='Z';
+if(!on)return'<svg viewBox="0 0 100 100"><path d="'+p+'" fill="none" stroke="#b9c0ba" stroke-dasharray="3 3"/><text x="50" y="58" text-anchor="middle" font-family="Georgia,serif" font-size="22" fill="#c9cfca">'+(i+1)+'</text></svg>';
+var m='style="mix-blend-mode:multiply"',c=['#a9c4b0','#e9b9a2','#a9bfd3'][i%3];
+return'<svg class="on" viewBox="0 0 100 100" style="transform:rotate('+((i*37%11)-5)+'deg)"><path d="'+p+'" fill="'+c+'" fill-opacity=".3" stroke="#3d4540" stroke-width="1.2"/><circle cx="50" cy="50" r="33" fill="none" stroke="#3d4540" stroke-width=".7" stroke-dasharray="1.5 2.5"/><circle cx="50" cy="41" r="11" fill="#a9c4b0" '+m+'/><circle cx="43" cy="54" r="11" fill="#e9b9a2" '+m+'/><circle cx="57" cy="54" r="11" fill="#a9bfd3" '+m+'/><text x="50" y="79" text-anchor="middle" font-family="Georgia,serif" font-size="6.5" letter-spacing="2" fill="#3d4540">KIVORA</text></svg>'}
+var h='';for(var i=0;i<6;i++)h+=stp(i,i<ST.length);document.getElementById('stamps').innerHTML=h;
+document.getElementById('sn').textContent=ST.length?ST.length+(ST.length>1?' tampons':' tampon')+' dans votre carnet':'Aucun tampon pour l’instant';
+var V=null,C=null,up=document.getElementById('up'),dn=document.getElementById('dn'),vm=document.getElementById('vm');
+try{V=localStorage.getItem('kv_vote')}catch(e){}
+function paint(){up.setAttribute('aria-pressed',V==='up');dn.setAttribute('aria-pressed',V==='down');document.getElementById('uc').textContent=C?'· '+C.up:'';document.getElementById('dc').textContent=C?'· '+C.down:''}
+paint();
+fetch('/api/vote').then(function(r){return r.json()}).then(function(d){if(d&&d.ok){C=d;paint()}}).catch(function(){});
+function vote(t){var prev=V;V=V===t?null:t;try{V?localStorage.setItem('kv_vote',V):localStorage.removeItem('kv_vote')}catch(e){}
+if(C){if(prev)C[prev]=Math.max(0,C[prev]-1);if(V)C[V]++}paint();
+vm.textContent=V==='up'?'Merci, votre cœur compte pour décider de la sortir.':V==='down'?'Merci de votre franchise : elle nous aide à décider.':'';
+fetch('/api/vote',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({vote:V,prev:prev})}).catch(function(){})}
+up.onclick=function(){vote('up')};dn.onclick=function(){vote('down')};
 </script>
 </body></html>
