@@ -18,7 +18,7 @@ export async function onRequestPost({ request, env }) {
 
     const p = new URLSearchParams();
     p.set('mode', 'payment');
-    p.set('success_url', origin + '/success.html');
+    p.set('success_url', origin + '/success.html?session_id={CHECKOUT_SESSION_ID}');
     p.set('cancel_url', origin + '/');
     ['FR', 'BE', 'CH', 'LU', 'DE', 'ES', 'IT'].forEach((c, i) => p.set(`shipping_address_collection[allowed_countries][${i}]`, c));
     p.set('shipping_options[0][shipping_rate_data][type]', 'fixed_amount');
@@ -34,7 +34,7 @@ export async function onRequestPost({ request, env }) {
       p.set(`line_items[${i}][quantity]`, String(qty));
       p.set(`line_items[${i}][price_data][currency]`, 'eur');
       p.set(`line_items[${i}][price_data][unit_amount]`, String(deal && deal.id === prod.id ? prod.deal : prod.price));
-      p.set(`line_items[${i}][price_data][product_data][name]`, prod.name + (deal && deal.id === prod.id ? " – offre de la semaine" : ""));
+      p.set(`line_items[${i}][price_data][product_data][name]`, prod.name + (deal && deal.id === prod.id ? " – le choix de la semaine" : ""));
     });
 
     const r = await fetch('https://api.stripe.com/v1/checkout/sessions', {
